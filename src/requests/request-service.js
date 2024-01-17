@@ -1,6 +1,7 @@
+import { getTrending } from "../data/trending-data.js";
 
-export const loadTrending = () => {
-    const trending = getTrending();
+export const loadTrending =  async () => {
+    const trending = await getTrending();
     return trending;
 }
 
@@ -13,3 +14,8 @@ export const loadSearch = () => {
     const search = getSearch();
     return search;
 }
+
+export const loadSingleGif = (id) => {
+    const singleGif = getSingleGif(id);
+    return singleGif;
+};
