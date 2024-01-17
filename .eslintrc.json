@@ -11,6 +11,15 @@
     "rules": {
         "linebreak-style": 0,
         "indent": ["error", 4],
-        "eol-last": 0
+        "eol-last": 0,
+        "no-console": 0,
+        "no-unused-vars": 0,
+        "import/extensions": 0,
+        "import/prefer-default-export": 0,
+        "arrow-parens": 0,
+        "comma-dangle": 0,
+        "object-curly-newline": 0,
+        "no-confusing-arrow": 0,
+        "function-paren-newline": 0
     }
 }

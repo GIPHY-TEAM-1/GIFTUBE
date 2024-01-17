@@ -1,4 +1,4 @@
-import {trendingURL} from '../common/constants.js';
+import { trendingURL } from '../common/constants.js';
 
 export const getTrending = async () => {
     const response = await trendingURL();
@@ -11,6 +11,6 @@ export const getTrending = async () => {
             username: element.username,
             title: element.title,
             image: element.images.fixed_width.url
-        }
-    })
+        };
+    });
 };
