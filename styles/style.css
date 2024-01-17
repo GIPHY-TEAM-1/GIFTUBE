@@ -1,5 +1,10 @@
 body {
-    margin: 0;
-    padding: 0;
+    margin: 1%;
+    padding: 1%;
     font-family: 'Quicksand', sans-serif;
 }
+
+img {
+    border-radius: 4px;
+}
+
