@@ -10,4 +10,4 @@ export const toHomeView = () => `
             </ul>
         </div>
     </div>
-`
+`;

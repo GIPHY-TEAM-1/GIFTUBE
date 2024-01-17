@@ -1,4 +1,4 @@
-export const toTrendingView =  (trending) => {
+export const toTrendingView = (trending) => {
     return `
     <div id="trending">
         <h1>Trending</h1>
@@ -13,7 +13,5 @@ export const toTrendingView =  (trending) => {
             </div>
             `).join('')}
         </div>
-    `
-}
-
-
+    `;
+};
