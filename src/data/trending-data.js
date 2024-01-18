@@ -10,7 +10,7 @@ export const getTrending = async () => {
             title: element.title,
             image: element.images.fixed_width.url,
             width: element.images.fixed_width.width,
-            height: element.images.fixed_width.height
+            height: element.images.fixed_width.height,
         };
     });
 };

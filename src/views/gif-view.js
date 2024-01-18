@@ -12,8 +12,8 @@ export const toSimpleView = (gif) => {
 export const onHoverGif = () => {
     return `
 <div class="overlay">
-  <span class="material-symbols-outlined">favorite</span>
-  <span class="material-symbols-outlined">share</span>
+  <span class="material-symbols-outlined favorite-link-btn">favorite</span>
+  <span class="material-symbols-outlined copy-link-btn">link</span>
 </div>`
 
 }
@@ -21,13 +21,15 @@ export const onHoverGif = () => {
 
 // To discuss with the team if it's needed
 export const toSingleGifView = (gif) => {
+  console.log(gif)
     return `
 <div class="gif-info">
 <img src=${gif.image} alt="${gif.title}">
   <h3>${gif.title}</h3>
   <p>${gif.username}</p>
   <div class="overlay">
-    <span class="material-symbols-outlined">favorite share preview</span>
+    <span class="material-symbols-outlined favorite-link-btn">favorite</span>
+    <span class="material-symbols-outlined copy-link-btn">link</span>
   </div>
 </div>`
 }
