@@ -3,11 +3,9 @@ import { ABOUT, CONTAINER_SELECTOR, FAVORITES, TRENDING, HOME, GIF_CLICK } from 
 import { loadTrending } from '../requests/request-service.js';
 import { toTrendingView } from '../views/trending-view.js';
 import { toAboutView } from '../views/about-view.js';
-import { toHomeView } from '../views/home-view.js';
 import { getFavorites } from '../data/favorites.js';
 import { toFavoritesView } from '../views/favorite-view.js';
-import { toSingleGifView } from '../views/gif-view.js';
-import { getSingleGif } from '../data/single-gif.js';
+
 
 
 export const loadPage = (page = '') => {
@@ -27,10 +25,6 @@ export const loadPage = (page = '') => {
 
     default: return null;
     }
-};
-
-const renderHome = () => {
-    q(CONTAINER_SELECTOR).innerHTML = toHomeView();
 };
 
 const renderTrending = async () => {

@@ -1,4 +1,3 @@
-import { HOME } from './common/constants.js';
 import { loadPage } from './events/navigation-events.js';
 import { q } from './events/helpers.js';
 import { TRENDING } from './common/constants.js';
@@ -28,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    
+
 
     loadPage(TRENDING);
 });
