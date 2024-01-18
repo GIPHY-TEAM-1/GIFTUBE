@@ -1,8 +1,22 @@
 body {
+    margin: 10px;
+    padding: 10px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+div #app {
+    display: grid;
+    max-width: 1600px;
     margin: 30px;
     padding: 30px;
-    font-family: 'Quicksand', sans-serif;
-    max-width: 1600px
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+        'header header header'
+        'menu menu menu menu menu'
+        'container'
+        'footer'
+    ;
 }
 
 img {
@@ -11,24 +25,50 @@ img {
 
 header {
     display: grid;
-    /* margin: 20px;
-    padding: 20px; */
     grid-template-columns: 15% 70% 15%;
     min-height: 40px;
 }
 
 .logo {
-    width: 200px;
-    padding-left: -30px;
-    display: flex
-    
+    width: 220px;
 }
 
 nav {
+    grid-area: menu;
+    height: 60px;
+    font-size: 1.75em;
+    line-height: 60px;
+    padding: 20px;
+    color: white;
+    display: flex;
     display: grid;
-    grid-template-columns: auto auto auto auto;
-    margin: 20px;
-    /* padding: 20px; */
     text-align: center;
+    grid-template-columns: auto auto auto auto auto;
+}
 
+nav a {
+    color: #00929A;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+#search {
+    margin-right: 30px;
+    border-radius: 4px;
+    font-size: x-large;
+}
+
+footer {
+    grid-area: footer;
+    padding: 10px;
+    text-align: center;
+    color: #ccc;
+    margin-top: 500px;
+}
+
+#upload-btn {
+    font-size: x-large;
+    background-color: #00929A;
+    color: azure;
+    border-radius: 4px;
 }
