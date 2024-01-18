@@ -1,10 +1,34 @@
 body {
-    margin: 1%;
-    padding: 1%;
+    margin: 30px;
+    padding: 30px;
     font-family: 'Quicksand', sans-serif;
+    max-width: 1600px
 }
 
 img {
     border-radius: 4px;
 }
 
+header {
+    display: grid;
+    /* margin: 20px;
+    padding: 20px; */
+    grid-template-columns: 15% 70% 15%;
+    min-height: 40px;
+}
+
+.logo {
+    width: 200px;
+    padding-left: -30px;
+    display: flex
+    
+}
+
+nav {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    margin: 20px;
+    /* padding: 20px; */
+    text-align: center;
+
+}
