@@ -1,8 +1,10 @@
 import { getTrending } from '../data/trending-data.js';
 import { getFavorites } from '../data/favorites.js';
+import { getSingleGif } from '../data/single-gif.js';
 
 export const loadTrending = async () => {
     const trending = await getTrending();
+
     return trending;
 };
 
