@@ -8,7 +8,9 @@ export const getTrending = async () => {
             id: element.id,
             username: element.username,
             title: element.title,
-            image: element.images.fixed_width.url
+            image: element.images.fixed_width.url,
+            width: element.images.fixed_width.width,
+            height: element.images.fixed_width.height
         };
     });
 };

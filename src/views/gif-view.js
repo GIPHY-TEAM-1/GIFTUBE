@@ -1,12 +1,9 @@
 export const toSimpleView = (gif) => {
     return `
-<div class="trending-container">
-  ${gif.map(g => `
-    <div class="gif-container">
-      <img class="gif-image" id=${g.id} src=${g.image} alt="${g.title} data-page="gif-click">
-      <!-- ${onHoverGif()} --!>
-    </div>
-   `).join('')}
+<div class="simple-view" style="width:${gif.width}px; height:${gif.height}px; background-image:url(${gif.image})">
+<!-- <img class="gif-image" id=${gif.id} src=${gif.image} alt="${gif.title} data-page="gif-click"> -->
+      <!-- ${onHoverGif()} -->
+      ${onHoverGif()}
 </div>`
 }
 
@@ -17,7 +14,6 @@ export const onHoverGif = () => {
 <div class="overlay">
   <span class="material-symbols-outlined">favorite</span>
   <span class="material-symbols-outlined">share</span>
-  <span class="material-symbols-outlined">preview</span>
 </div>`
 
 }

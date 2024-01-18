@@ -5,7 +5,8 @@ export const toTrendingView = (trending) => {
     return `
     <div id="trending">
         <h1>Trending</h1>
-        ${toSimpleView(trending)}
+        <div class="trending-container">
+          ${trending.map(gif => toSimpleView(gif)).join('')}
     </div>
     `;
 };
