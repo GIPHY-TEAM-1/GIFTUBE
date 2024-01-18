@@ -1,4 +1,5 @@
 import { getTrending } from '../data/trending-data.js';
+import { getFavorites } from '../data/favorites.js';
 
 export const loadTrending = async () => {
     const trending = await getTrending();

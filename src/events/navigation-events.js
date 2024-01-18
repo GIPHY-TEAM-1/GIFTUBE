@@ -4,6 +4,8 @@ import { loadTrending } from '../requests/request-service.js';
 import { toTrendingView } from '../views/trending-view.js';
 import { toAboutView } from '../views/about-view.js';
 import { toHomeView } from '../views/home-view.js';
+import { getFavorites } from '../data/favorites.js';
+import { toFavoritesView } from '../views/favorite-view.js';
 
 export const loadPage = (page = '') => {
     switch (page) {
