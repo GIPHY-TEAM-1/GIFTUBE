@@ -1,6 +1,12 @@
 import { HOME } from './common/constants.js';
 import { loadPage } from './events/navigation-events.js';
 import { q } from './events/helpers.js';
+import { TRENDING } from './common/constants.js';
+import { CONTAINER_SELECTOR } from './common/constants.js';
+import { toSingleGifView } from './views/gif-view.js';
+import { getSingleGif } from './data/single-gif.js';
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded');
@@ -11,5 +17,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    loadPage(HOME);
+    const logo = document.querySelector('#logo');
+    logo.addEventListener('click', () => {
+        loadPage(TRENDING);
+    });
+
+    document.addEventListener('click', async (event) => {
+        if (event.target.classList.contains('gif-image')) {
+            q(CONTAINER_SELECTOR).innerHTML = toSingleGifView(await getSingleGif(event.target.id));
+        }
+    });
+
+    
+
+    loadPage(TRENDING);
 });

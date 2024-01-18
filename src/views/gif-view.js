@@ -2,8 +2,8 @@ export const toSimpleView = (gif) => {
     return `
 <div class="trending-container">
   ${gif.map(g => `
-    <div class="gif-container" data-page="gif-click">
-      <img class="gif-image" id=${g.id} src=${g.image} alt="${g.title}">
+    <div class="gif-container">
+      <img class="gif-image" id=${g.id} src=${g.image} alt="${g.title} data-page="gif-click">
       <!-- ${onHoverGif()} --!>
     </div>
    `).join('')}
