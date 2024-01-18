@@ -4,9 +4,8 @@ import { toSimpleView } from "./gif-view.js";
 export const toTrendingView = (trending) => {
     return `
     <div id="trending">
-        <h1>Trending</h1>
-        <div class="trending-container">
-          ${trending.map(gif => toSimpleView(gif)).join('')}
+        <h3 id="trending-header">⚡ Trending</h3>
+        ${toSimpleView(trending)}
     </div>
     `;
 };
