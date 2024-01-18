@@ -1,10 +1,11 @@
 export const toSimpleView = (gif) => {
     return `
-<div class="simple-view" id=${gif.id} style="width:${gif.width}px; height:${gif.height}px; background-image:url(${gif.image})">
-<!-- <img class="gif-image" id=${gif.id} src=${gif.image} alt="${gif.title} data-page="gif-click"> -->
-      <!-- ${onHoverGif()} -->
-      ${onHoverGif()}
-</div>`
+      <div class="simple-view" id=${gif.id} style="width:${gif.width}px; height:${gif.height}px; background-image:url(${gif.image})">
+      <!-- <img class="gif-image" id=${gif.id} src=${gif.image} alt="${gif.title} data-page="gif-click"> -->
+          <!-- ${onHoverGif()} -->
+          ${onHoverGif()}
+      </div>
+  `
 }
 
 
