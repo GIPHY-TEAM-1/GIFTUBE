@@ -2,8 +2,8 @@ export const toSimpleView = (gif) => {
     return `
 <div class="trending-container">
   ${gif.map(g => `
-    <div class="gif-container">
-      <img class="gif-image" src=${g.image} alt="${g.title}">
+    <div class="gif-container" data-page="gif-click">
+      <img class="gif-image" id=${g.id} src=${g.image} alt="${g.title}">
       <!-- ${onHoverGif()} --!>
     </div>
    `).join('')}
@@ -11,11 +11,13 @@ export const toSimpleView = (gif) => {
 }
 
 
-// TODO - Image Overlay Icon - How to
+// TODO - Image Overlay Icon - How to // position:absolute -> top/bottom properties
 export const onHoverGif = () => {
     return `
 <div class="overlay">
-  <span class="material-symbols-outlined">favorite share preview</span>
+  <span class="material-symbols-outlined">favorite</span>
+  <span class="material-symbols-outlined">share</span>
+  <span class="material-symbols-outlined">preview</span>
 </div>`
 
 }
@@ -25,7 +27,7 @@ export const onHoverGif = () => {
 export const toSingleGifView = (gif) => {
     return `
 <div class="gif-info">
-<img src=${g.image} alt="${g.title}">
+<img src=${gif.image} alt="${gif.title}">
   <h3>${gif.title}</h3>
   <p>${gif.username}</p>
   <div class="overlay">
