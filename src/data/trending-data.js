@@ -5,7 +5,6 @@ export const getTrending = async () => {
     const json = await response.json();
     console.log(json);
     return json.data.map(element => {
-        console.log(element.url);
         return {
             id: element.id,
             username: element.username,
