@@ -7,7 +7,7 @@ body {
 }
 
 div#app {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 1em auto;
     color: white;
     background-color: rgba(0, 0, 0, 0.441);
@@ -77,6 +77,7 @@ header > .search-bar-container > button {
     color: white;
     flex-grow: 1;
 }
+
 
 header > #upload-btn {
     font-size: x-large;
@@ -157,5 +158,23 @@ footer {
     color: #ccc;
 }
 
+.trending-container {
+    columns: 5;
+    /* border: 1px solid red; */
+}
+
+.trending-container > * {
+    margin-bottom: 1.5em;
+    break-inside: avoid;
+    object-fit: contain;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 200ms;
+}
 
 
+.trending-view {
+    margin: 0 auto;
+    max-width: 95%;
+    margin-left: 2.3em;
+}
