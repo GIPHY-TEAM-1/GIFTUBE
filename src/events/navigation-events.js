@@ -12,10 +12,7 @@ import { getSingleGif } from '../data/single-gif.js';
 
 export const loadPage = (page = '') => {
     switch (page) {
-    case HOME:
-        setActiveNav(HOME);
-        return renderHome();
-
+    
     case TRENDING:
         setActiveNav(TRENDING);
         return renderTrending();
@@ -27,9 +24,6 @@ export const loadPage = (page = '') => {
     case ABOUT:
         setActiveNav(ABOUT);
         return renderAbout();
-
-    case GIF_CLICK:
-        return renderGifClick();
 
     default: return null;
     }
@@ -50,7 +44,3 @@ const renderFavorites = () => {
 const renderAbout = () => {
     q(CONTAINER_SELECTOR).innerHTML = toAboutView();
 };
-
-const renderGifClick = () => {
-    q(CONTAINER_SELECTOR).innerHTML = toSingleGifView(getSingleGif());
-}
