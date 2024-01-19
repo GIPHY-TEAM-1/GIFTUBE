@@ -1,7 +1,7 @@
 import { trendingURL } from '../common/constants.js';
 
 export const getTrending = async () => {
-    const response = await trendingURL(100, 100);
+    const response = await fetch(trendingURL(100, 100));
     const json = await response.json();
     return json.data.map(element => {
         return {

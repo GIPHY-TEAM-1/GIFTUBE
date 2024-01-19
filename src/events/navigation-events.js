@@ -32,6 +32,9 @@ const renderTrending = async () => {
 };
 
 const renderFavorites = () => {
+    // to add await before getFavorites after finishing favorites.js!!!!!
+    // replace get\favorites with loadFavorites????????
+    // If no favorites, return random gif 
     q(CONTAINER_SELECTOR).innerHTML = toFavoritesView(getFavorites());
 };
 

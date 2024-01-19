@@ -8,7 +8,8 @@ export const loadTrending = async () => {
     return trending;
 };
 
-export const loadFavorites = () => {
+export const loadFavorites = async () => {
+    // add await / 
     const favorites = getFavorites();
     return favorites;
 };
@@ -18,7 +19,7 @@ export const loadSearch = () => {
     return search;
 };
 
-export const loadSingleGif = (id) => {
-    const singleGif = getSingleGif(id);
+export const loadSingleGif = async (id) => {
+    const singleGif = await getSingleGif(id);
     return singleGif;
 };
