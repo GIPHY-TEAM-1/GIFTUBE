@@ -1,13 +1,5 @@
-/*
-DONE      1. How TO - Image Overlay Icon
-2. toggleFavoriteStatus - add/remove active status - to check how to
-DONE      3. renderFavoriteStatus
-4. renderFavorites im navigation-events.js
-*/
-
 import { getFavorites, removeFavorite, addFavorite } from "../data/favorites.js"
 import { q } from "./helpers.js";
-
 
 /**
  * Renders the favorite status icon based on whether the specified GIF ID is in the favorites.
@@ -18,9 +10,9 @@ import { q } from "./helpers.js";
 export const renderFavoriteStatus = (gifId) => {
     const favorites = getFavorites();
 
-    if (!favorites.includes(gifId)) {
+    if (favorites.includes(gifId)) {
         return `
-        <span class="material-symbols-outlined favorite active" data-gif-id=${gifId}>
+        <span class="material-symbols-outlined favorite active" data-gif-id="${gifId}">
           favorite
         </span>
         <style>
@@ -34,11 +26,11 @@ export const renderFavoriteStatus = (gifId) => {
         </style>`
     } else {
         return `
-        <span class="material-symbols-outlined favorite" data-gif-id=${gifId}>
+        <span class="material-symbols-outlined favorite" data-gif-id="${gifId}">
           favorite
         </span>`;
-    }
-}
+    };
+};
 
 /**
  * Toggles the favorite status of a GIF based on its ID.
@@ -48,16 +40,15 @@ export const renderFavoriteStatus = (gifId) => {
  */
 export const toggleFavoriteStatus = (gifId) => {
     const favorites = getFavorites();
-    const favoriteStatus = q(`span[data-gif-id=${gifId}]`);
+    const favoriteStatus = q(`span[data-gif-id="${gifId}"]`);
 
     if (favorites.includes(gifId)) {
         removeFavorite(gifId);
         favoriteStatus.classList.remove('active');
     } else {
         addFavorite(gifId);
-        favoriteStatus.classList.add('active')
-    }
+        favoriteStatus.classList.add('active');
+    };
 
     favoriteStatus.innderHTML = renderFavoriteStatus(gifId);
-
-}
+};

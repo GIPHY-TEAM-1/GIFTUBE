@@ -24,6 +24,4 @@ export const getGifById = (gifId) => `https://api.giphy.com/v1/gifs/${gifId}?api
 
 export const randomGif = `https://api.giphy.com/v1/gifs/random?api_key=${APIKey}&tag=&rating=g`;
 
-// To check emptyHeart
-
 export const link = `<span class="material-symbols-outlined link-btn">link</span>`;

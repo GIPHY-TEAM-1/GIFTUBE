@@ -3,7 +3,6 @@
  * @type {string[]}
  */
 export let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-console.log(favorites)
 
 /**
  * Adds the specified GIF ID to the list of favorites and stores it in the localStorage.
@@ -15,7 +14,7 @@ export const addFavorite = (gifId) => {
   if (favorites.find(id => id === gifId)) {
     // Gif has already been added to favorites
     return;
-  }
+  };
 
   favorites.push(gifId);
   localStorage.setItem('favorites', JSON.stringify(favorites));
