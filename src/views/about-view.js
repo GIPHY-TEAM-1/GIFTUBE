@@ -1,3 +1,8 @@
+/**
+ * Generates the HTML string for the "About" view in GIFtube.
+ *
+ * @returns {string} - The HTML string representing the content for the "About" view.
+ */
 export const toAboutView = () => `
     <div id="about">
         <div class="content">
@@ -8,5 +13,4 @@ export const toAboutView = () => `
             <p>Get ready to discover, share, and immerse yourself in the world of trending GIFs at GIFtube – where every upload tells a story, and the internet's most exciting moments come to life.</p>
         </div>
     </div>
-
 `;

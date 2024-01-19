@@ -1,6 +1,12 @@
 import { link } from "../common/constants.js"
 import { renderFavoriteStatus } from "../events/favorites-events.js"
 
+/**
+ * Generates the HTML string for a simple view of a GIF in GIFtube.
+ *
+ * @param {Object} gif - An object containing information about the GIF.
+ * @returns {string} The HTML string representing the content for the simple view of the GIF.
+ */
 export const toSimpleView = (gif) => {
   // console.log(gif)
     return `
@@ -10,22 +16,31 @@ export const toSimpleView = (gif) => {
           ${onHoverGif(gif.id)}
       </div>
   `
-}
+};
 
 
 // TODO - Image Overlay Icon - How to // position:absolute -> top/bottom properties
+/**
+ * Generates the HTML string for the overlay content when hovering over a GIF in GIFtube.
+ *
+ * @param {string} gifId - The ID of the GIF for which the overlay is generated.
+ * @returns {string} The HTML string representing the content for the overlay when hovering over a GIF.
+ */
 export const onHoverGif = (gifId) => {
     return `
 <div class="overlay">
   ${renderFavoriteStatus(gifId)}
   ${link}
 </div>`
+};
 
-}
-
-
+/**
+ * Generates the HTML string for the detailed view of a single GIF in GIFtube.
+ *
+ * @param {Object} gif - An object containing information about the single GIF.
+ * @returns {string} The HTML string representing the content for the detailed view of the GIF.
+ */
 export const toSingleGifView = (gif) => {
-  // console.log(gif)
     return `
 <div class="gif-info" id=${gif.id}>
 <img src=${gif.image} alt="${gif.title}">
@@ -36,4 +51,4 @@ export const toSingleGifView = (gif) => {
     ${link}
   </div>
 </div>`
-}
+};

@@ -1,7 +1,13 @@
 import { toSimpleView } from "./gif-view.js";
 
+/**
+ * Generates the HTML string for the "Favorites" view in GIFtube.
+ *
+ * @param {Object[]} gifs - An array of objects containing information about favorite GIFs.
+ * @param {boolean} [random=false] - A flag indicating whether the view is for a random GIF.
+ * @returns {string} The HTML string representing the content for the "Favorites" view.
+ */
 export const toFavoritesView = (gifs, random = false) => 
-
 `
 <div data-page="favorites">
   <h1>Favorite GIFs:</h1>

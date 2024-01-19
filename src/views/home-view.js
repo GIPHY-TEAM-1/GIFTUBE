@@ -1,3 +1,8 @@
+/**
+ * Generates the HTML string for the home view of GIFtube.
+ *
+ * @returns {string} - The HTML string representing the content for the home view.
+ */
 export const toHomeView = () => `
     <div id="home-view">
         <!-- <h1>GITtube App</h1> --!>
