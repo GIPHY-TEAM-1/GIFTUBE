@@ -27,7 +27,7 @@ export const randomGif = fetch('https://api.giphy.com/v1/gifs/random?api_key=8Hy
 // To check emptyHeart
 export const emptyHeart = `<span class="material-symbols-outlined favorite">favorite</span>`;
 // To check fullHeart
-export const fullHeart = (gifId) => `<span class="material-symbols-outlined favorite active" id: ${gifId}>favorite</span>
+export const fullHeart = `<span class="material-symbols-outlined favorite active">favorite</span>
     <style>
     #full-heart {
       font-variation-settings:
