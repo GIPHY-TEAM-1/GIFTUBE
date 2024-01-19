@@ -5,17 +5,17 @@ export const toSimpleView = (gif) => {
       <div class="simple-view" data-gif-id id=${gif.id} style="width:${gif.width}px; height:${gif.height}px; background-image:url(${gif.image})">
       <!-- <img class="gif-image" id=${gif.id} src=${gif.image} alt="${gif.title} data-page="gif-click"> -->
           <!-- ${onHoverGif()} -->
-          ${onHoverGif(gif.id)}
+          ${onHoverGif()}
       </div>
   `
 }
 
 
 // TODO - Image Overlay Icon - How to // position:absolute -> top/bottom properties
-export const onHoverGif = (gifId) => {
+export const onHoverGif = () => {
     return `
 <div class="overlay">
-  ${emptyHeart(gifId)}
+  ${emptyHeart}
   ${link}
 </div>`
 

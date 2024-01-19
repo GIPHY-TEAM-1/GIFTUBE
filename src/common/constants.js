@@ -20,12 +20,9 @@ export const trendingURL = (limit = 25, offset = 0) => fetch(`https://api.giphy.
 
 export const searchURL = (query = '', limit = 25, offset = 0) => fetch(`https://api.giphy.com/v1/gifs/search?api_key=${APIKey}&q=${query}&limit=${limit}&offset=${offset}&rating=g&lang=en`);
 
-export const emptyHeart = (gifId) => {
-    return `<span class="material-symbols-outlined favorite" data-gif-id=${gifId}>favorite</span>`
-};
+export const emptyHeart = `<span class="material-symbols-outlined favorite">favorite</span>`;
 
-export const fullHeart = (gifId) => {
-    return `<span class="material-symbols-outlined favorite active" data-gif-id=${gifId}>favorite</span>
+export const fullHeart = `<span class="material-symbols-outlined favorite active">favorite</span>
     <style>
     #full-heart {
       font-variation-settings:
@@ -34,7 +31,6 @@ export const fullHeart = (gifId) => {
       'GRAD' 0,
       'opsz' 24
     }
-    </style>`
-};
+    </style>`;
 
 export const link = `<span class="material-symbols-outlined link-btn">link</span>`;
