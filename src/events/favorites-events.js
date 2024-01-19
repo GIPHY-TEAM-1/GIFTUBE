@@ -8,6 +8,12 @@ DONE      3. renderFavoriteStatus
 import { getFavorites } from "../data/favorites.js"
 
 
+/**
+ * Renders the favorite status icon based on whether the specified GIF ID is in the favorites.
+ *
+ * @param {string} gifId - The ID of the GIF.
+ * @returns {string} The HTML representation of the favorite status icon.
+ */
 export const renderFavoriteStatus = (gifId) => {
     const favorites = getFavorites();
 
