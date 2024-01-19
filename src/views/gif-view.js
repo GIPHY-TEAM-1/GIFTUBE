@@ -28,7 +28,7 @@ export const toSingleGifView = (gif) => {
   // console.log(gif)
     return `
 <div class="gif-info" id=${gif.id}>
-<img src=${gif.images.fixed_width.url} alt="${gif.title}">
+<img src=${gif.image} alt="${gif.title}">
   <h3>${gif.title}</h3>
   <p>${gif.username}</p>
   <div class="overlay">
