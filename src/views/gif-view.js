@@ -1,4 +1,5 @@
 import { fullHeart, emptyHeart, link } from "../common/constants.js"
+import { renderFavoriteStatus } from "../events/favorites-events.js"
 
 export const toSimpleView = (gif) => {
   console.log(gif)
@@ -6,17 +7,17 @@ export const toSimpleView = (gif) => {
       <div class="simple-view" data-gif-id="${gif.id}" id="${gif.id}" style="width:${gif.width}px; height:${gif.height}px; background-image:url(${gif.image})">
       <!-- <img class="gif-image" id=${gif.id} src=${gif.image} alt="${gif.title} data-page="gif-click"> -->
           <!-- ${onHoverGif()} -->
-          ${onHoverGif()}
+          ${onHoverGif(gif.id)}
       </div>
   `
 }
 
 
 // TODO - Image Overlay Icon - How to // position:absolute -> top/bottom properties
-export const onHoverGif = () => {
+export const onHoverGif = (gifId) => {
     return `
 <div class="overlay">
-  ${emptyHeart}
+  ${renderFavoriteStatus(gifId)}
   ${link}
 </div>`
 
@@ -31,7 +32,7 @@ export const toSingleGifView = (gif) => {
   <h3>${gif.title}</h3>
   <p>${gif.username}</p>
   <div class="overlay">
-    ${emptyHeart}
+    ${renderFavoriteStatus(gif.id)}
     ${link}
   </div>
 </div>`
