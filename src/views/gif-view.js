@@ -1,6 +1,7 @@
 import { fullHeart, emptyHeart, link } from "../common/constants.js"
 
 export const toSimpleView = (gif) => {
+  console.log(gif)
     return `
       <div class="simple-view" data-gif-id id=${gif.id} style="width:${gif.width}px; height:${gif.height}px; background-image:url(${gif.image})">
       <!-- <img class="gif-image" id=${gif.id} src=${gif.image} alt="${gif.title} data-page="gif-click"> -->
@@ -22,12 +23,11 @@ export const onHoverGif = () => {
 }
 
 
-// To discuss with the team if it's needed
 export const toSingleGifView = (gif) => {
   console.log(gif)
     return `
-<div class="gif-info">
-<img src=${gif.image} alt="${gif.title}">
+<div class="gif-info" id=${gif.id}>
+<img src=${gif.images.fixed_width.url} alt="${gif.title}">
   <h3>${gif.title}</h3>
   <p>${gif.username}</p>
   <div class="overlay">
