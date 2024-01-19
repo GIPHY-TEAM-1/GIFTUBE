@@ -1,4 +1,4 @@
-import { fullHeart, emptyHeart, link } from "../common/constants.js"
+import { link } from "../common/constants.js"
 import { renderFavoriteStatus } from "../events/favorites-events.js"
 
 export const toSimpleView = (gif) => {
