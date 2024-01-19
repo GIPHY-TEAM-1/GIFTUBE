@@ -2,7 +2,7 @@ import { link } from "../common/constants.js"
 import { renderFavoriteStatus } from "../events/favorites-events.js"
 
 export const toSimpleView = (gif) => {
-  console.log(gif)
+  // console.log(gif)
     return `
       <div class="simple-view" data-gif-id="${gif.id}" id="${gif.id}" style="width:${gif.width}px; height:${gif.height}px; background-image:url(${gif.image})">
       <!-- <img class="gif-image" id=${gif.id} src=${gif.image} alt="${gif.title} data-page="gif-click"> -->
@@ -25,7 +25,7 @@ export const onHoverGif = (gifId) => {
 
 
 export const toSingleGifView = (gif) => {
-  console.log(gif)
+  // console.log(gif)
     return `
 <div class="gif-info" id=${gif.id}>
 <img src=${gif.images.fixed_width.url} alt="${gif.title}">

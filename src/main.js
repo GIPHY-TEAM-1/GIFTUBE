@@ -4,6 +4,7 @@ import { TRENDING } from './common/constants.js';
 import { CONTAINER_SELECTOR } from './common/constants.js';
 import { toSingleGifView } from './views/gif-view.js';
 import { getSingleGif } from './data/single-gif.js';
+import { toggleFavoriteStatus } from './events/favorites-events.js';
 
 
 
@@ -29,8 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('click', (event) => {
         if (event.target.classList.contains('favorite')) {
-            console.log('success')
-            console.log('TODO: implement a func to add or remove favorites')
+            toggleFavoriteStatus(event.target.getAttribute('data-gif-id'));
         }
     })
 
