@@ -4,9 +4,9 @@ export const toFavoritesView = (gifs, random = false) =>
 
 `
 <div data-page="favorites">
-  <h1>Favorite Gifs:</h1>
+  <h1>Favorite GIFs:</h1>
   <div class="content">
-    ${random ? `<p>Add some gifs to favorites to see them here.</p>` : ''}
+    ${random ? `<p>Behold the GIF that's stealing the spotlight right now! 🔥 Feeling the vibe? Secure its spot in your favorites!</p>` : ''}
     ${gifs.map((g) => toSimpleView(g)).join('\n')}
   </div>
 </div>
