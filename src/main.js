@@ -27,6 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    document.addEventListener('click', (event) => {
+        if (event.target.classList.contains('favorite')) {
+            console.log('success')
+            console.log('TODO: implement a func to add or remove favorites')
+        }
+    })
 
 
     loadPage(TRENDING);
