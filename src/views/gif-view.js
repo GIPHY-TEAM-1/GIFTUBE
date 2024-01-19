@@ -1,20 +1,22 @@
+import { fullHeart, emptyHeart, link } from "../common/constants.js"
+
 export const toSimpleView = (gif) => {
     return `
-      <div class="simple-view" id=${gif.id} style="width:${gif.width}px; height:${gif.height}px; background-image:url(${gif.image})">
+      <div class="simple-view" data-gif-id id=${gif.id} style="width:${gif.width}px; height:${gif.height}px; background-image:url(${gif.image})">
       <!-- <img class="gif-image" id=${gif.id} src=${gif.image} alt="${gif.title} data-page="gif-click"> -->
           <!-- ${onHoverGif()} -->
-          ${onHoverGif()}
+          ${onHoverGif(gif.id)}
       </div>
   `
 }
 
 
 // TODO - Image Overlay Icon - How to // position:absolute -> top/bottom properties
-export const onHoverGif = () => {
+export const onHoverGif = (gifId) => {
     return `
 <div class="overlay">
-  <span class="material-symbols-outlined favorite-link-btn">favorite</span>
-  <span class="material-symbols-outlined copy-link-btn">link</span>
+  ${emptyHeart(gifId)}
+  ${link}
 </div>`
 
 }
@@ -29,8 +31,8 @@ export const toSingleGifView = (gif) => {
   <h3>${gif.title}</h3>
   <p>${gif.username}</p>
   <div class="overlay">
-    <span class="material-symbols-outlined favorite-link-btn">favorite</span>
-    <span class="material-symbols-outlined copy-link-btn">link</span>
+    <span class="material-symbols-outlined favorite-btn">favorite</span>
+    <span class="material-symbols-outlined link-btn">link</span>
   </div>
 </div>`
 }
