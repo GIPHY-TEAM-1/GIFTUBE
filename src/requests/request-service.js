@@ -25,15 +25,6 @@ export const loadFavorites = () => {
     return favorites;
 };
 
-
-// TODO
-export const loadSearch = () => {
-    const search = getSearch();
-
-    return search;
-};
-
-
 /**
  * Loads a single GIF asynchronously using the getSingleGif function.
  *
@@ -55,4 +46,4 @@ export const loadRandomGif = async () => {
     const randomGif = await getRandomGif();
 
     return randomGif;
-}
+};

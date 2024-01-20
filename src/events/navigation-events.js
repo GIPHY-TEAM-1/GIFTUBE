@@ -5,7 +5,8 @@ import { toTrendingView } from '../views/trending-view.js';
 import { toAboutView } from '../views/about-view.js';
 import { toFavoritesView } from '../views/favorite-view.js';
 import { toUploadView } from '../views/upload-view.js';
-
+import { toSearchView } from '../views/search-view.js';
+import { getSearch } from '../data/search-data.js';
 
 /**
  * Loads the specified page, sets the active navigation link, and renders the corresponding content.
@@ -81,6 +82,10 @@ const renderAbout = () => {
     q(CONTAINER_SELECTOR).innerHTML = toAboutView();
 };
 
+export const renderSearch = async (query) => {
+    q(CONTAINER_SELECTOR).innerHTML = toSearchView(await getSearch(query), query);
+};
+
 const renderUpload = () => {
     q(CONTAINER_SELECTOR).innerHTML = toUploadView();
-}
+};
