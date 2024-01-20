@@ -1,6 +1,6 @@
 import { loadPage, renderFavorites } from './events/navigation-events.js';
 import { q } from './events/helpers.js';
-import { FAVORITES, TRENDING, CONTAINER_SELECTOR } from './common/constants.js';
+import { FAVORITES, TRENDING, CONTAINER_SELECTOR, uploadApi, UPLOAD, APIKey } from './common/constants.js';
 import { toSingleGifView } from './views/gif-view.js';
 import { getSingleGif } from './data/single-gif.js';
 import { toggleFavoriteStatus } from './events/favorites-events.js';
@@ -53,3 +53,65 @@ const logo = q('#logo');
 logo.addEventListener('click', () => {
     loadPage(TRENDING);
 });
+
+const upload = q('#upload-btn');
+upload.addEventListener('click', () => {
+    loadPage(UPLOAD)
+    const innerUpload = q('#inner-upload-btn');
+    const fileInput = q('#file-input');
+    innerUpload.addEventListener('click', async (event) => {
+        event.preventDefault();
+        const file = fileInput.files[0];
+
+        if (!file) {
+            alert('Please upload a file!')
+        } else {
+            const formData = new FormData();
+            formData.append('file', file);
+            try {
+                const request = await fetch(uploadApi, {
+                    method: 'POST',
+                    body: formData
+                })
+                const response = await request.json();
+                console.log(response);
+                alert('File uploaded successfully!');
+            } catch (e) {
+                console.log(e.message)
+            }
+        }
+    })
+})
+
+// const innerUpload = document.getElementById('submit-button');
+// console.log(innerUpload)
+
+// // const hello = document.querySelector('.hello')
+// // console.log(hello)
+// innerUpload.addEventListener('click', () => {
+//     console.log('hello')
+// })
+// const fileInput = q('form#upload-form');
+// const fileInput = q('file-input');
+// innerUpload.addEventListener('click', () => {
+// event.preventDefault();
+// // const file = fileInput.files[0];
+
+// const formData = new FormData(fileInput);
+// console.log(formData)
+// formData.append('api_key', APIKey);
+// formData.append('api_key', APIKey);
+
+//     fetch(uploadApi, {
+//         method: 'POST',
+//         body: formData,
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//         console.log(data);
+//         alert('File uploaded successfully!');
+//     })
+//     .catch(e => console.log(e.message));
+//     console.log('success')
+
+// })
