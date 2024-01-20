@@ -6,11 +6,14 @@
 export const toAboutView = () => `
     <div id="about">
         <div class="content">
-            <p>Step into the vibrant world of GIFtube, your ultimate destination for the hottest and most trending GIFs on the internet. Curated for your enjoyment, GIFtube is your go-to hub for the latest and greatest animated moments that are setting the digital world on fire.</p>
-            <p>Our journey began with a simple mission – to bring you a carefully curated selection of the most buzzworthy GIFs that capture the pulse of the online community. From viral sensations to hilarious memes, heartwarming clips, and everything in between, GIFtube is your front-row seat to the dynamic and ever-evolving world of internet culture.</p>
-            <p>Here at GIFtube, we understand that the internet moves at the speed of a click, and trends come and go in the blink of an eye. That's why our team works tirelessly to handpick the most exciting and share-worthy GIFs, ensuring that you're always in the loop and ready to be part of the latest online conversations.</p>
-            <p>Join our community of GIF enthusiasts and let GIFtube be your daily dose of internet culture. Whether you're looking to share a laugh, express your feelings, or simply stay on top of what's trending, GIFtube is the place to be.</p>
-            <p>Get ready to discover, share, and immerse yourself in the world of trending GIFs at GIFtube – where every upload tells a story, and the internet's most exciting moments come to life.</p>
+            <h4>Hey GIF enthusiasts!</h4>
+            <p>We've got a confession to make... Our office cat has a secret talent for unlocking the mysterious art of "borrowing" GIFs from the vast realms of the internet. 🕵️‍♂️</p>
+            <p>But fear not! We've decided to turn this into an interactive experience. Instead of just "borrowing," we want you to join the GIF adventure! Share your creations, memes, and moments, and let's turn this GIF collection into a melting pot of internet greatness.</p>
+            <h4>What you can do on Gifs App:</h4>
+            <p>🚀 See the latest and greatest stolen... oops, we mean "carefully curated" GIFs.</p>
+            <p>🔍 Search for GIFs that may or may not have slipped through the cracks of copyright law.</p>
+            <p>💾 Save your favorites because, let's be honest, they're probably already saved on your camera roll.</p>
+            <p>Remember, great GIFs deserve to be celebrated, so help us build a GIF wonderland that's as original as your aunt's dance moves at family gatherings!</p>
         </div>
     </div>
 `;
