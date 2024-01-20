@@ -50,5 +50,5 @@ export const toggleFavoriteStatus = (gifId) => {
         favoriteStatus.classList.add('active');
     };
 
-    favoriteStatus.innderHTML = renderFavoriteStatus(gifId);
+    favoriteStatus.innerHTML = renderFavoriteStatus(gifId);
 };
