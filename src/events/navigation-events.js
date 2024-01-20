@@ -1,5 +1,5 @@
 import { q, setActiveNav } from './helpers.js';
-import { ABOUT, CONTAINER_SELECTOR, FAVORITES, TRENDING, UPLOAD} from '../common/constants.js';
+import { ABOUT, CONTAINER_SELECTOR, FAVORITES, TRENDING, UPLOAD } from '../common/constants.js';
 import { loadFavorites, loadRandomGif, loadSingleGif, loadTrending } from '../requests/request-service.js';
 import { toTrendingView } from '../views/trending-view.js';
 import { toAboutView } from '../views/about-view.js';
@@ -16,7 +16,6 @@ import { getSearch } from '../data/search-data.js';
  */
 export const loadPage = (page = '') => {
     switch (page) {
-    
     case TRENDING:
         setActiveNav(TRENDING);
         return renderTrending();
@@ -46,31 +45,27 @@ const renderTrending = async () => {
     q(CONTAINER_SELECTOR).innerHTML = toTrendingView(await loadTrending());
 };
 
-
 /**
  * Renders the favorite GIFs in the specified container using the favorites view.
  *
  * @returns {Promise<void>} A promise that resolves after rendering the favorite GIFs.
  */
 export const renderFavorites = async () => {
-
     const favorites = loadFavorites();
     const favoriteGifs = [];
 
     if (favorites.length !== 0) {
-
         for (const id of favorites) {
             const promise = await loadSingleGif(id);
             favoriteGifs.push(promise);
         }
         q(CONTAINER_SELECTOR).innerHTML = toFavoritesView(favoriteGifs);
-
     } else {
         const promise = await loadRandomGif();
-        favoriteGifs.push(promise)
+        favoriteGifs.push(promise);
         q(CONTAINER_SELECTOR).innerHTML = toFavoritesView(favoriteGifs, true);
     }
-  };
+};
 
 /**
  * Renders the about view in the specified container.

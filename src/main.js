@@ -1,6 +1,6 @@
-import { loadPage, renderFavorites, renderSearch } from './events/navigation-events.js';
 import { q } from './events/helpers.js';
-import { FAVORITES, TRENDING, CONTAINER_SELECTOR, uploadApi, UPLOAD, APIKey } from './common/constants.js';
+import { loadPage, renderFavorites, renderSearch } from './events/navigation-events.js';
+import { FAVORITES, TRENDING, CONTAINER_SELECTOR, uploadApi, UPLOAD } from './common/constants.js';
 import { toSingleGifView } from './views/gif-view.js';
 import { getSingleGif } from './data/single-gif.js';
 import { toggleFavoriteStatus } from './events/favorites-events.js';
@@ -30,8 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         /** Refresh favorites view if the favorite icon is clicked in the Favorites page */
-        if (event.target.classList.contains('favorite') &&
-            event.target.parentNode.parentNode.parentNode.parentNode.getAttribute('data-page') === FAVORITES) {
+        if (event.target.classList.contains('favorite') && event.target.parentNode.parentNode.parentNode.parentNode.getAttribute('data-page') === FAVORITES) {
             await renderFavorites();
         }
 
@@ -46,45 +45,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /** Loading of the TRENDING page when the DOM is fully loaded */
     loadPage(TRENDING);
-});
 
-/**
- * Event listener for a click on the logo element.
- * Loads the TRENDING page when the logo is clicked.
- *
- * @listens click
- */
-const logo = q('#logo');
-logo.addEventListener('click', () => {
-    loadPage(TRENDING);
-});
+    /**
+     * Event listener for a click on the logo element.
+     * Loads the TRENDING page when the logo is clicked.
+     *
+     * @listens click
+     */
+    const logo = q('#logo');
+    logo.addEventListener('click', () => {
+        loadPage(TRENDING);
+    });
 
-const upload = q('#upload-btn');
-upload.addEventListener('click', () => {
-    loadPage(UPLOAD)
-    const innerUpload = q('#inner-upload-btn');
-    const fileInput = q('#file-input');
-    innerUpload.addEventListener('click', async (event) => {
-        event.preventDefault();
-        const file = fileInput.files[0];
+    const upload = q('#upload-btn');
+    upload.addEventListener('click', () => {
+        loadPage(UPLOAD);
+        const innerUpload = q('#inner-upload-btn');
+        const fileInput = q('#file-input');
+        innerUpload.addEventListener('click', async (event) => {
+            event.preventDefault();
+            const file = fileInput.files[0];
 
-        if (!file) {
-            alert('Please upload a file!');
-        } else {
-            const formData = new FormData();
-            formData.append('file', file);
-            try {
-                const request = await fetch(uploadApi, {
-                    method: 'POST',
-                    body: formData
-                });
-                const response = await request.json();
-                console.log(response);
-                alert('File uploaded successfully!');
-            } catch (e) {
-                console.log(e.message);
+            if (!file) {
+                alert('Please upload a file!');
+            } else {
+                const formData = new FormData();
+                formData.append('file', file);
+                try {
+                    const request = await fetch(uploadApi, {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const response = await request.json();
+                    console.log(response);
+                    alert('File uploaded successfully!');
+                } catch (e) {
+                    console.log(e.message);
+                }
             }
-        }
+        });
     });
 });
 
