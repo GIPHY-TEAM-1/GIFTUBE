@@ -10,8 +10,7 @@ div#app {
     max-width: 1200px;
     margin: 1em auto;
     color: white;
-    background-color: rgba(0, 0, 0, 0.441);
-    border-radius: 4px;
+    border-radius: 10px;
     padding: 1em;
     min-height: 100vh;
     display: flex;
@@ -40,6 +39,9 @@ img {
 header {
     min-height: 40px;
     display: flex;
+    max-width: 900px;
+    min-width: 55vw;
+    margin: 0 auto;
 }
 
 header > .logo {
@@ -55,7 +57,7 @@ header > .logo:hover {
 .search-bar-container {
     flex-grow: 1;
     display: flex;
-
+    margin: 0 .5em;
 }
 
 header > .search-bar-container > input {
@@ -63,8 +65,12 @@ header > .search-bar-container > input {
     border-bottom-left-radius: 3px;
     border: none;
     font-size: large;
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0);
     flex-grow: 15;
+    color: white;
+    padding-left: .5em;
+    border: #00929A 1px solid;
+    outline: none;
 }
 
 header > .search-bar-container > button {
@@ -177,4 +183,8 @@ footer {
     margin: 0 auto;
     max-width: 95%;
     margin-left: 2.3em;
+}
+
+.active {
+    color: white;
 }
