@@ -188,3 +188,7 @@ footer {
 .active {
     color: white;
 }
+
+.content div:hover {
+    cursor: pointer;
+}
