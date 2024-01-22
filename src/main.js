@@ -79,7 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const file = fileInput.files[0];
 
             if (!file) {
-                alert('Please upload a file!');
+                // alert('Please upload a file!');
+                q(CONTAINER_SELECTOR).innerHTML += `<br><div class="copy-message">Please upload a file!</div>`
             } else {
                 const formData = new FormData();
                 formData.append('file', file);
@@ -90,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         body: formData
                     });
                     const response = await request.json();
-                    alert('File uploaded successfully!');
+                    q(CONTAINER_SELECTOR).innerHTML += `<br><div class="copy-message">File uploaded successfully!</div>`
                     uploadGif(response)
 
                 } catch (e) {
