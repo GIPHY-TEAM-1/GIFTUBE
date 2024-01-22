@@ -243,6 +243,8 @@ footer {
     max-width: 25px;
 } */
 
+/* POP-UP */
+
 .pop-up {
     width: 100vw;
     text-align: center;
@@ -260,4 +262,42 @@ footer {
 
 .hidden {
     display: none;
+}
+
+/* UPLOAD */
+
+.upload-btn-container {
+    border: 10px dashed rgba(174, 174, 174, 0.088);
+    border-radius: 120px;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2em;
+    min-height: 350px;
+}
+
+.upload-btn-container > p {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.upload-btn-container > p > a {
+    color: #37dde5;
+    text-decoration: none;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.upload-btn-container > form > label, .upload-btn-container > form > button {
+    font-weight: 500;
+    font-size: 1.2rem;
+    background-color: #00929A;
+    color: rgb(255, 255, 255);
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    padding: .5em 1em;
+    cursor: pointer;
+    text-transform: uppercase;
 }
