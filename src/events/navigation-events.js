@@ -1,12 +1,13 @@
 import { q, setActiveNav } from './helpers.js';
-import { ABOUT, CONTAINER_SELECTOR, FAVORITES, TRENDING, UPLOAD } from '../common/constants.js';
-import { loadFavorites, loadRandomGif, loadSingleGif, loadTrending } from '../requests/request-service.js';
+import { ABOUT, CONTAINER_SELECTOR, FAVORITES, TRENDING, UPLOAD, UPLOADBTN } from '../common/constants.js';
+import { loadFavorites, loadRandomGif, loadSingleGif, loadTrending, loadUploads } from '../requests/request-service.js';
 import { toTrendingView } from '../views/trending-view.js';
 import { toAboutView } from '../views/about-view.js';
 import { toFavoritesView } from '../views/favorite-view.js';
-import { toUploadView } from '../views/upload-view.js';
+import { toUploadBtnView } from '../views/upload-btn-view.js';
 import { toSearchView } from '../views/search-view.js';
 import { getSearch } from '../data/search-data.js';
+import { toUploadsView } from '../views/uploads-view.js';
 
 /**
  * Loads the specified page, sets the active navigation link, and renders the corresponding content.
@@ -30,7 +31,11 @@ export const loadPage = (page = '') => {
 
     case UPLOAD:
         setActiveNav(UPLOAD);
-        return renderUpload();
+        return renderUploads();
+
+    case UPLOADBTN:
+        setActiveNav(UPLOADBTN);
+        return renderUploadBtn()
 
     default: return null;
     }
@@ -81,6 +86,18 @@ export const renderSearch = async (query) => {
     q(CONTAINER_SELECTOR).innerHTML = toSearchView(await getSearch(query), query);
 };
 
-const renderUpload = () => {
-    q(CONTAINER_SELECTOR).innerHTML = toUploadView();
+export const renderUploadBtn = () => {
+    q(CONTAINER_SELECTOR).innerHTML = toUploadBtnView();
 };
+
+export const renderUploads = async () => {
+    const uploads = loadUploads();
+    const uploadsGif = [];
+
+    for (const id of uploads) {
+        const promise = await loadSingleGif(id.data.id);
+        uploadsGif.push(promise);
+        console.log(id)
+    }
+    q(CONTAINER_SELECTOR).innerHTML = toUploadsView(uploadsGif);
+}

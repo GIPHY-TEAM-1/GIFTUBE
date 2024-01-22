@@ -2,6 +2,7 @@ import { getTrending } from '../data/trending-data.js';
 import { getFavorites } from '../data/favorites.js';
 import { getSingleGif } from '../data/single-gif.js';
 import { getRandomGif } from '../data/random-gif.js';
+import { getUploads } from '../data/uploads.js';
 
 /**
  * Loads trending GIFs asynchronously using the getTrending function.
@@ -46,4 +47,11 @@ export const loadRandomGif = async () => {
     const randomGif = await getRandomGif();
 
     return randomGif;
+};
+
+
+export const loadUploads = () => {
+    const uploads = getUploads();
+
+    return uploads;
 };

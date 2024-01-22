@@ -10,6 +10,8 @@ export const FAVORITES = 'favorites';
 
 export const UPLOAD = 'upload';
 
+export const UPLOADBTN = 'upload-button'
+
 export const APIKey = '8HymYwpltTZGDtB4oK7t5Te7t617IfM6';
 
 export const CONTAINER_SELECTOR = '#container';

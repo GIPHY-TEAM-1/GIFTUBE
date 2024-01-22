@@ -1,9 +1,10 @@
 import { q } from './events/helpers.js';
-import { loadPage, renderFavorites, renderSearch } from './events/navigation-events.js';
-import { FAVORITES, TRENDING, CONTAINER_SELECTOR, uploadApi, UPLOAD } from './common/constants.js';
+import { loadPage, renderFavorites, renderSearch, renderUploads } from './events/navigation-events.js';
+import { FAVORITES, TRENDING, CONTAINER_SELECTOR, uploadApi, UPLOAD, UPLOADBTN } from './common/constants.js';
 import { toSingleGifView } from './views/gif-view.js';
 import { getSingleGif } from './data/single-gif.js';
 import { toggleFavoriteStatus } from './events/favorites-events.js';
+import { uploadGif } from './data/uploads.js';
 
 // !!!! REMINDER TO MYSELF: TO ADD IN @listens click ALL NEW IMPLEMENTATIONS!!!!
 /**
@@ -34,6 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
             await renderFavorites();
         }
 
+        if (event.target.classList.contains('uploads')) {
+            renderUploads();
+        }
+
         if (event.target.parentNode.classList.contains('search-btn')) {
             const input = q('#search');
             if (input.value !== '') {
@@ -59,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const upload = q('#upload-btn');
     upload.addEventListener('click', () => {
-        loadPage(UPLOAD);
+        loadPage(UPLOADBTN);
         const innerUpload = q('#inner-upload-btn');
         const fileInput = q('#file-input');
         innerUpload.addEventListener('click', async (event) => {
@@ -79,6 +84,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     const response = await request.json();
                     console.log(response);
                     alert('File uploaded successfully!');
+                    uploadGif(response.data.id)
+                    
                 } catch (e) {
                     console.log(e.message);
                 }
@@ -87,35 +94,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// const innerUpload = document.getElementById('submit-button');
-// console.log(innerUpload)
-
-// // const hello = document.querySelector('.hello')
-// // console.log(hello)
-// innerUpload.addEventListener('click', () => {
-//     console.log('hello')
-// })
-// const fileInput = q('form#upload-form');
-// const fileInput = q('file-input');
-// innerUpload.addEventListener('click', () => {
-// event.preventDefault();
-// // const file = fileInput.files[0];
-
-// const formData = new FormData(fileInput);
-// console.log(formData)
-// formData.append('api_key', APIKey);
-// formData.append('api_key', APIKey);
-
-//     fetch(uploadApi, {
-//         method: 'POST',
-//         body: formData,
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//         console.log(data);
-//         alert('File uploaded successfully!');
-//     })
-//     .catch(e => console.log(e.message));
-//     console.log('success')
-
-// })
