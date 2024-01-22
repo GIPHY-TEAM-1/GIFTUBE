@@ -76,16 +76,16 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 const formData = new FormData();
                 formData.append('file', file);
+                
                 try {
                     const request = await fetch(uploadApi, {
                         method: 'POST',
                         body: formData
                     });
                     const response = await request.json();
-                    console.log(response);
                     alert('File uploaded successfully!');
-                    uploadGif(response.data.id)
-                    
+                    uploadGif(response)
+
                 } catch (e) {
                     console.log(e.message);
                 }

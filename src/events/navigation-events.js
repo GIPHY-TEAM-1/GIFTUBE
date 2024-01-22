@@ -92,12 +92,11 @@ export const renderUploadBtn = () => {
 
 export const renderUploads = async () => {
     const uploads = loadUploads();
-    const uploadsGif = [];
+    const uploadGifs = [];
 
     for (const id of uploads) {
         const promise = await loadSingleGif(id.data.id);
-        uploadsGif.push(promise);
-        console.log(id)
+        uploadGifs.push(promise);
     }
-    q(CONTAINER_SELECTOR).innerHTML = toUploadsView(uploadsGif);
+    q(CONTAINER_SELECTOR).innerHTML = toUploadsView(uploadGifs);
 }
