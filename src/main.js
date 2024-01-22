@@ -5,6 +5,7 @@ import { toSingleGifView } from './views/gif-view.js';
 import { getSingleGif } from './data/single-gif.js';
 import { toggleFavoriteStatus } from './events/favorites-events.js';
 import { uploadGif } from './data/uploads.js';
+import { loadSingleGif } from './requests/request-service.js';
 
 // !!!! REMINDER TO MYSELF: TO ADD IN @listens click ALL NEW IMPLEMENTATIONS!!!!
 /**
@@ -45,6 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 await renderSearch(input.value);
                 input.value = '';
             }
+        }
+
+        if(event.target.classList.contains('link-btn')) {
+            const result = await loadSingleGif(event.target.parentNode.parentNode.getAttribute('data-gif-id'));
+            navigator.clipboard.writeText(result.image);
         }
     });
 
