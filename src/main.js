@@ -51,12 +51,26 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.target.classList.contains('link-btn')) {
             const result = await loadSingleGif(event.target.parentNode.parentNode.getAttribute('data-gif-id'));
             navigator.clipboard.writeText(result.image);
-            q(CONTAINER_SELECTOR).innerHTML += `<div class="copy-message">Link copied to clipboard!</div>`;
+            q(CONTAINER_SELECTOR).innerHTML += '<div class="copy-message">Link copied to clipboard!</div>';
         }
     });
 
     /** Loading of the TRENDING page when the DOM is fully loaded */
     loadPage(TRENDING);
+
+    /** Event listener for the search input field.
+     * Loads the SEARCH page when the Enter key is pressed.
+     * @listens keydown
+    */
+    q('#search').addEventListener('keydown', async (event) => {
+        if (event.key === 'Enter') {
+            const input = q('#search');
+            if (input.value !== '') {
+                await renderSearch(input.value);
+                input.value = '';
+            }
+        }
+    });
 
     /**
      * Event listener for a click on the logo element.
@@ -80,20 +94,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!file) {
                 // alert('Please upload a file!');
-                q(CONTAINER_SELECTOR).innerHTML += `<br><div class="copy-message">Please upload a file!</div>`
+                q(CONTAINER_SELECTOR).innerHTML += '<br><div class="copy-message">Please upload a file!</div>';
             } else {
                 const formData = new FormData();
                 formData.append('file', file);
-                
                 try {
                     const request = await fetch(uploadApi, {
                         method: 'POST',
                         body: formData
                     });
                     const response = await request.json();
-                    q(CONTAINER_SELECTOR).innerHTML += `<br><div class="copy-message">File uploaded successfully!</div>`
-                    uploadGif(response)
-
+                    q(CONTAINER_SELECTOR).innerHTML += '<br><div class="copy-message">File uploaded successfully!</div>';
+                    uploadGif(response);
                 } catch (e) {
                     console.log(e.message);
                 }
@@ -101,4 +113,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-
