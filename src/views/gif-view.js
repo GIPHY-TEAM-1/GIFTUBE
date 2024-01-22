@@ -8,16 +8,14 @@ import { renderFavoriteStatus } from "../events/favorites-events.js"
  * @returns {string} The HTML string representing the content for the simple view of the GIF.
  */
 export const toSimpleView = (gif) => {
-  // console.log(gif)
+// console.log(gif)
     return `
       <div class="simple-view" data-gif-id="${gif.id}" id="${gif.id}" style="width:${gif.width}px; height:${gif.height}px; background-image:url(${gif.image})">
       <!-- <img class="gif-image" id=${gif.id} src=${gif.image} alt="${gif.title} data-page="gif-click"> -->
-          <!-- ${onHoverGif()} -->
           ${onHoverGif(gif.id)}
       </div>
-  `
+  `;
 };
-
 
 // TODO - Image Overlay Icon - How to // position:absolute -> top/bottom properties
 /**
@@ -28,10 +26,10 @@ export const toSimpleView = (gif) => {
  */
 export const onHoverGif = (gifId) => {
     return `
-<div class="overlay">
-  ${renderFavoriteStatus(gifId)}
-  ${link}
-</div>`
+    <div class="overlay">
+      ${renderFavoriteStatus(gifId)}
+      ${link}
+    </div>`;
 };
 
 /**
@@ -41,14 +39,18 @@ export const onHoverGif = (gifId) => {
  * @returns {string} The HTML string representing the content for the detailed view of the GIF.
  */
 export const toSingleGifView = (gif) => {
+    const [date, time] = gif.date.split(' ');
     return `
-<div class="gif-info" id=${gif.id}>
-<img src=${gif.image} alt="${gif.title}">
-  <h3>${gif.title}</h3>
-  <p>${gif.username}</p>
-  <div class="overlay">
-    ${renderFavoriteStatus(gif.id)}
-    ${link}
-  </div>
-</div>`
+    <div class="single-gif-info-container" id=${gif.id}>
+      <img src=${gif.image} alt="${gif.title}">
+      <div class="single-gif-info-right-side">
+        <h3>Title: ${gif.title || 'Unknown'}</h3>
+        <p><strong>User:</strong> ${gif.username || 'Anonymous'}</p>
+        <p><strong>Uploaded:</strong> ${`${date} at ${time}` || 'Unknown'}</p>
+        <div class="overlay">
+          ${renderFavoriteStatus(gif.id)}
+          ${link}
+        </div>
+      </div>
+    </div>`;
 };

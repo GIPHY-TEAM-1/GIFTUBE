@@ -1,5 +1,5 @@
-import { getFavorites, removeFavorite, addFavorite } from "../data/favorites.js"
-import { q } from "./helpers.js";
+import { getFavorites, removeFavorite, addFavorite } from '../data/favorites.js';
+import { q } from './helpers.js';
 
 /**
  * Renders the favorite status icon based on whether the specified GIF ID is in the favorites.
@@ -12,7 +12,7 @@ export const renderFavoriteStatus = (gifId) => {
 
     if (favorites.includes(gifId)) {
         return `
-        <span class="material-symbols-outlined favorite active" data-gif-id="${gifId}">
+        <span class="material-symbols-outlined favorite active material-symbols-outlined-active" data-gif-id="${gifId}">
           favorite
         </span>
         <style>
@@ -21,16 +21,21 @@ export const renderFavoriteStatus = (gifId) => {
             'FILL' 1,
             'wght' 400,
             'GRAD' 0,
-            'opsz' 24
+            'opsz' 24;
            }
-        </style>`
-    } else {
-        return `
-        <span class="material-symbols-outlined favorite" data-gif-id="${gifId}">
-          favorite
-        </span>`;
-    };
+        </style>`;
+    }
+    return `
+    <span class="material-symbols-outlined favorite" data-gif-id="${gifId}">
+      favorite
+    </span>`;
 };
+
+// export const renderFavoriteStatus = (gifId) => {
+//     const favorites = getFavorites();
+//     if (favorites.includes(gifId)) return `<img class="heart-icon favorite active" data-gif-id=${gifId} src="../../images/fav-icons/FULL_HEART.png">`;
+//     return `<img class="heart-icon favorite" data-gif-id=${gifId} src="../../images/fav-icons/EMPTY_HEART.png">`;
+// };
 
 /**
  * Toggles the favorite status of a GIF based on its ID.
@@ -44,10 +49,10 @@ export const toggleFavoriteStatus = (gifId) => {
 
     if (favorites.includes(gifId)) {
         removeFavorite(gifId);
-        favoriteStatus.classList.remove('active');
+        favoriteStatus.classList.toggle('active');
     } else {
         addFavorite(gifId);
-        favoriteStatus.classList.add('active');
+        favoriteStatus.classList.toggle('active');
     };
 
     favoriteStatus.innerHTML = renderFavoriteStatus(gifId);

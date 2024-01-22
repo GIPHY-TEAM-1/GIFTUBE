@@ -18,6 +18,7 @@ export const getSearch = async (query) => {
             image: element.images.fixed_width.url,
             width: element.images.fixed_width.width,
             height: element.images.fixed_width.height,
+            date: element.import_datetime,
         };
     });
 };

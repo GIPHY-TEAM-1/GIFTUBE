@@ -1,3 +1,5 @@
+/* TODO: ORDER AND PLACE DESCRIPTIONS */
+/* !!!!!!!!!!! */
 body {
     margin: 0;
     padding: 0;
@@ -28,13 +30,11 @@ div#container {
     flex-grow: 1;
 }
 
-div#container img {
-    cursor: pointer;
+.active {
+    color: white;
 }
 
-img {
-    border-radius: 4px;
-}
+/* HEADER - LOGO, SEARCH BAR, BUTTONS */
 
 header {
     min-height: 40px;
@@ -58,6 +58,7 @@ header > .logo:hover {
     flex-grow: 1;
     display: flex;
     margin: 0 .5em;
+    margin-right: 0;
 }
 
 header > .search-bar-container > input {
@@ -164,12 +165,13 @@ footer {
     color: #ccc;
 }
 
-.trending-container {
+/* GIF CONTAINERS - TRENDING, FAVORITES, SEARCH, UPLOAD */
+
+.gif-container {
     columns: 5;
-    /* border: 1px solid red; */
 }
 
-.trending-container > * {
+.gif-container > * {
     margin-bottom: 1.5em;
     break-inside: avoid;
     object-fit: contain;
@@ -178,17 +180,84 @@ footer {
     transition: 200ms;
 }
 
-
-.trending-view {
+.gif-view {
     margin: 0 auto;
     max-width: 95%;
     margin-left: 2.3em;
 }
 
-.active {
-    color: white;
+/* SINGLE DETAILED GIF VIEW */
+
+.single-gif-info-container {
+    display: flex;
+    margin: 0 auto;
+    /* border: red solid 1px; */
+    max-width: 950px;
+    margin-top: 2.7em;
 }
 
-.content div:hover {
+.single-gif-info-right-side > h3 {
+    font-size: 1.5rem;
+    margin-top: 0;
+}
+
+/* .single-gif-info-right-side .overlay {
+    scale: 1.2;
+} */
+
+.single-gif-info-right-side > * {
+    max-width: fit-content;
+}
+
+.single-gif-info-container > img {
+    min-width: 500px;
+    border-radius: 8px;
+}
+
+.single-gif-info-right-side {
+    margin-left: 2em;
+    /* border: 1px solid blue; */
+}
+
+.material-symbols-outlined:hover {
     cursor: pointer;
+    user-select: none;
+}
+
+.material-symbols-outlined {
+    transition:1s;
+}
+
+.material-symbols-outlined-active {
+    color: rgb(255, 0, 89);
+    transition: 1s ease;
+}
+
+.gif-view .overlay {
+    position: relative;
+    top: 5px;
+    left: 5px;
+}
+
+/* .heart-icon {
+    max-width: 25px;
+} */
+
+.pop-up {
+    width: 100vw;
+    text-align: center;
+    margin: 0;
+    padding: .5em 0;
+    position: absolute;
+    font-size: 1.4rem;
+    top: 0;
+    left: 0;
+    background: rgb(255,0,61);
+    background: linear-gradient(236deg, rgba(255,0,61,1) 0%, rgba(173,0,103,1) 100%);
+    color: white;
+    z-index: 100;
+}
+
+.hidden {
+    display: none;
 }

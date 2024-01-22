@@ -10,9 +10,9 @@ import { toSimpleView } from './gif-view.js';
 
 export const toSearchView = (gifs, query) => {
     return `
-    <div class="search-view">
+    <div class="search-view gif-view">
         <h3 id="search-header">Search Results for "${query}"</h3>
-        <div class="search-container">
+        <div class="search-container gif-container">
             ${gifs.map(toSimpleView).join('') || `No results found for for "${query}" :(`}
         </div>
     </div>
