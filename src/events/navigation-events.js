@@ -34,8 +34,7 @@ export const loadPage = (page = '') => {
         return renderUploads();
 
     case UPLOADBTN:
-        setActiveNav(UPLOADBTN);
-        return renderUploadBtn()
+        return renderUploadBtn();
 
     default: return null;
     }
@@ -99,4 +98,4 @@ export const renderUploads = async () => {
         uploadGifs.push(promise);
     }
     q(CONTAINER_SELECTOR).innerHTML = toUploadsView(uploadGifs);
-}
+};
