@@ -1,5 +1,5 @@
 import { q, setActiveNav } from './helpers.js';
-import { ABOUT, CONTAINER_SELECTOR, FAVORITES, TRENDING, UPLOAD, UPLOADBTN } from '../common/constants.js';
+import { ABOUT, CATEGORIES, CONTAINER_SELECTOR, FAVORITES, TRENDING, UPLOAD, UPLOADBTN } from '../common/constants.js';
 import { loadFavorites, loadRandomGif, loadSingleGif, loadTrending, loadUploads } from '../requests/request-service.js';
 import { toTrendingView } from '../views/trending-view.js';
 import { toAboutView } from '../views/about-view.js';
@@ -8,6 +8,7 @@ import { toUploadBtnView } from '../views/upload-btn-view.js';
 import { toSearchView } from '../views/search-view.js';
 import { getSearch } from '../data/search-data.js';
 import { toUploadsView } from '../views/uploads-view.js';
+import { toCategoriesView } from '../views/categories.js';
 
 /**
  * Loads the specified page, sets the active navigation link, and renders the corresponding content.
@@ -36,6 +37,9 @@ export const loadPage = (page = '') => {
     case UPLOADBTN:
         return renderUploadBtn();
 
+    case CATEGORIES:
+        return renderCategories();
+
     default: return null;
     }
 };
@@ -49,6 +53,9 @@ const renderTrending = async () => {
     q(CONTAINER_SELECTOR).innerHTML = toTrendingView(await loadTrending());
 };
 
+const renderCategories = async() => {
+    q(CONTAINER_SELECTOR).innerHTML = await toCategoriesView();
+}
 /**
  * Renders the favorite GIFs in the specified container using the favorites view.
  *

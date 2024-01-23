@@ -12,6 +12,8 @@ export const UPLOAD = 'upload';
 
 export const UPLOADBTN = 'upload-button';
 
+export const CATEGORIES = 'categories';
+
 export const API_KEY = '8HymYwpltTZGDtB4oK7t5Te7t617IfM6';
 
 export const CONTAINER_SELECTOR = '#container';
@@ -27,5 +29,7 @@ export const getGifById = (gifId) => `https://api.giphy.com/v1/gifs/${gifId}?api
 export const uploadApi = `https://upload.giphy.com/v1/gifs?api_key=${API_KEY}`;
 
 export const randomGif = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=&rating=g`;
+
+export const categories = `https://api.giphy.com/v1/gifs/categories?api_key=${API_KEY}`
 
 export const link = '<span class="material-symbols-outlined link-btn">link</span>';
