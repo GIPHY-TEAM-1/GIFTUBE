@@ -30,6 +30,6 @@ export const uploadApi = `https://upload.giphy.com/v1/gifs?api_key=${API_KEY}`;
 
 export const randomGif = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=&rating=g`;
 
-export const categories = `https://api.giphy.com/v1/gifs/categories?api_key=${API_KEY}`
+export const categories = `https://api.giphy.com/v1/gifs/categories?api_key=${API_KEY}`;
 
 export const link = '<span class="material-symbols-outlined link-btn">link</span>';
