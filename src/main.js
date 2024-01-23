@@ -1,11 +1,13 @@
 import { q } from './events/helpers.js';
 import { loadPage, renderFavorites, renderSearch, renderUploads } from './events/navigation-events.js';
-import { FAVORITES, TRENDING, CONTAINER_SELECTOR, uploadApi, UPLOAD, UPLOADBTN } from './common/constants.js';
+import { FAVORITES, TRENDING, CONTAINER_SELECTOR, uploadApi, UPLOADBTN } from './common/constants.js';
 import { toSingleGifView } from './views/gif-view.js';
 import { getSingleGif } from './data/single-gif.js';
 import { toggleFavoriteStatus } from './events/favorites-events.js';
-import { uploadGif } from './data/uploads.js';
+// import { uploadGif } from './data/uploads.js';
 import { loadSingleGif } from './requests/request-service.js';
+import { UploadPostRequest } from './events/upload-events.js';
+import { fileIsNotAttached } from './views/upload-btn-view.js';
 
 // !!!! REMINDER TO MYSELF: TO ADD IN @listens click ALL NEW IMPLEMENTATIONS!!!!
 /**
@@ -83,32 +85,42 @@ document.addEventListener('DOMContentLoaded', () => {
         loadPage(TRENDING);
     });
 
+    /**
+     * Handles the click event on the upload button, initiates the upload page,
+     * and sets up an event listener for the inner upload button.
+     *
+     * @function
+     * @returns {void}
+     *
+     * @listens click
+     */
     const upload = q('#upload-btn');
     upload.addEventListener('click', () => {
         loadPage(UPLOADBTN);
+
         const innerUpload = q('#inner-upload-btn');
         const fileInput = q('#file-input');
+
+/**
+ * Event listener for the click event on the inner upload button. 
+ * Prevents the default form submission behavior, checks if a file is selected,
+ * and either displays a message indicating that no file is attached or initiates
+ * the upload request using the {@link UploadPostRequest} function.
+ *
+ * @function
+ * @param {Event} event - The click event object.
+ * @returns {void}
+ *
+ * @listens click
+ */
         innerUpload.addEventListener('click', async (event) => {
             event.preventDefault();
             const file = fileInput.files[0];
 
             if (!file) {
-                // alert('Please upload a file!');
-                q(CONTAINER_SELECTOR).innerHTML += '<br><div class="copy-message">Please upload a file!</div>';
+                q(CONTAINER_SELECTOR).innerHTML = fileIsNotAttached();
             } else {
-                const formData = new FormData();
-                formData.append('file', file);
-                try {
-                    const request = await fetch(uploadApi, {
-                        method: 'POST',
-                        body: formData
-                    });
-                    const response = await request.json();
-                    q(CONTAINER_SELECTOR).innerHTML += '<br><div class="copy-message">File uploaded successfully!</div>';
-                    uploadGif(response);
-                } catch (e) {
-                    console.log(e.message);
-                }
+                UploadPostRequest(file, uploadApi);
             }
         });
     });

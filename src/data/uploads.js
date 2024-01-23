@@ -37,4 +37,3 @@ export const uploadGif = (response) => {
  */
 export const getUploads = () => [...uploads].reverse();
 
-

@@ -1,3 +1,5 @@
+import { q } from "../events/helpers.js";
+
 export const HOME = 'home';
 
 export const ABOUT = 'about';
