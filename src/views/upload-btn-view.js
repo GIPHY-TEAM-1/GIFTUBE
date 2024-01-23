@@ -4,7 +4,7 @@
  * @returns {string} - The HTML string representing the content for the "Upload Gif" button view.
  */
 
-export const toUploadBtnView = (event = '') => {
+export const toUploadBtnView = () => {
     return `
     <div class="upload-btn-view gif-view">
         <h3><strong>GIFTUBE</strong> Upload</h3>
@@ -15,7 +15,7 @@ export const toUploadBtnView = (event = '') => {
                 <input id="file-input" type="file" accept=".gif" />
                 <button class="upload-form-button" id="inner-upload-btn">Upload</button>
             </form>
-            <p>${event}</p>
+            <p id="user-msg"></p>
         </div>
     </div>
     `;
@@ -30,7 +30,7 @@ export const toUploadBtnView = (event = '') => {
  */
 export const isSuccessfulUpload = () => {
     return `
-    ${toUploadBtnView('File upload successfully!')}
+    ${toUploadBtnView('File uploaded successfully!')}
 `
 }
 
@@ -45,4 +45,10 @@ export const fileIsNotAttached = () => {
     return `
     ${toUploadBtnView('Please upload a file!')}
 `
+}
+
+export const waitToUploadFile = () => {
+    return `
+    ${toUploadBtnView('Uploading file...')}
+    `
 }

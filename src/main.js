@@ -6,7 +6,7 @@ import { getSingleGif } from './data/single-gif.js';
 import { toggleFavoriteStatus } from './events/favorites-events.js';
 import { loadSingleGif } from './requests/request-service.js';
 import { UploadPostRequest } from './events/upload-events.js';
-import { fileIsNotAttached } from './views/upload-btn-view.js';
+import { fileIsNotAttached, toUploadBtnView } from './views/upload-btn-view.js';
 
 /**
  * Event listener setup for GIFtube webpage.
@@ -60,7 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /** Handle runaway button */
-    document.addEventListener('mouseover', (event) => {
+    const uploadBtn = q('.upload-btn')
+    uploadBtn.addEventListener('mouseover', (event) => {
         if (event.target.parentNode.classList.contains('upload-btn')) {
             console.log('hovering');
             event.target.parentNode.classList.toggle('move-right');
@@ -134,12 +135,18 @@ document.addEventListener('DOMContentLoaded', () => {
         * @listens click
         */
         innerUpload.addEventListener('click', async (event) => {
-            event.preventDefault();
+            // event.preventDefault();
             const file = fileInput.files[0];
 
             if (!file) {
-                q(CONTAINER_SELECTOR).innerHTML = fileIsNotAttached();
+                q('#user-msg').innerHTML = 'Please upload a file!'
+
+                // setTimeout(() => {
+                //     loadPage(UPLOADBTN);
+                // }, 1000)
             } else {
+                console.log('else')
+                q(CONTAINER_SELECTOR).innerHTML = toUploadBtnView();
                 UploadPostRequest(file, uploadApi);
             }
         });

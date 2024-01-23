@@ -1,6 +1,6 @@
 import { CONTAINER_SELECTOR } from "../common/constants.js";
 import { uploadGif } from "../data/uploads.js";
-import { isSuccessfulUpload } from "../views/upload-btn-view.js";
+import { isSuccessfulUpload, waitToUploadFile } from "../views/upload-btn-view.js";
 import { q } from "./helpers.js";
 
 /**
@@ -24,13 +24,18 @@ export const UploadPostRequest = async (file, api) => {
     const formData = new FormData();
     formData.append('file', file);
     try {
-        const request = await fetch(api, {
-            method: 'POST',
-            body: formData
-        });
-        const response = await request.json();
-        q(CONTAINER_SELECTOR).innerHTML = isSuccessfulUpload();
-        uploadGif(response);
+        setTimeout(async () => {
+            const request = await fetch(api, {
+                method: 'POST',
+                body: formData
+            });
+            const response = await request.json();
+            q('#user-msg').innerHTML = 'File uploaded successfully!'
+            uploadGif(response);
+        }, 2000);
+
+        q('#user-msg').innerHTML = 'Uploading file...';
+
     } catch (e) {
         console.log(e.message);
     }
