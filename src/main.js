@@ -114,19 +114,21 @@ document.addEventListener('DOMContentLoaded', () => {
      * @returns {void}
      *
      * @listens click
-     */
+    */
     const upload = q('#upload-btn');
     upload.addEventListener('click', () => {
+        /** Load the upload page when the main upload button is clicked */
         loadPage(UPLOADBTN);
 
+        /** Get references to the inner upload button and file input */
         const innerUpload = q('#inner-upload-btn');
         const fileInput = q('#file-input');
 
-       /**
+        /**
         * Event listener for the click event on the inner upload button. 
         * Prevents the default form submission behavior, checks if a file is selected,
         * and either displays a message indicating that no file is attached or initiates
-        * the upload request using the {@link UploadPostRequest} function.
+        * the upload request using the UploadPostRequest function.
         *
         * @function
         * @param {Event} event - The click event object.
@@ -135,17 +137,18 @@ document.addEventListener('DOMContentLoaded', () => {
         * @listens click
         */
         innerUpload.addEventListener('click', async (event) => {
-            // event.preventDefault();
+            /** Prevent the default form submission behavior */
+            event.preventDefault();
+
+            /** Get the selected file from the file input */
             const file = fileInput.files[0];
 
             if (!file) {
+                /** Display a message if no file is attached */
                 q('#user-msg').innerHTML = 'Please upload a file!'
 
-                // setTimeout(() => {
-                //     loadPage(UPLOADBTN);
-                // }, 1000)
             } else {
-                console.log('else')
+                /** If a file is selected, initiate the upload request */
                 q(CONTAINER_SELECTOR).innerHTML = toUploadBtnView();
                 UploadPostRequest(file, uploadApi);
             }
