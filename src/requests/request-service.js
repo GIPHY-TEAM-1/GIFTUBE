@@ -50,6 +50,12 @@ export const loadRandomGif = async () => {
 };
 
 
+/**
+ * Retrieves information about uploaded items from the application state.
+ *
+ * @returns {Array} - An array containing information about uploaded items.
+ * @see getUploads
+ */
 export const loadUploads = () => {
     const uploads = getUploads();
 

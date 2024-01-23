@@ -81,14 +81,38 @@ const renderAbout = () => {
     q(CONTAINER_SELECTOR).innerHTML = toAboutView();
 };
 
+/**
+ * Renders the search view in GIFtube based on the provided search query.
+ *
+ * @param {string} query - The search query to be used for fetching search results.
+ * @returns {Promise<void>} - A promise that resolves after rendering the search view.
+ * @see getSearch
+ * @see toSearchView
+ */
 export const renderSearch = async (query) => {
     q(CONTAINER_SELECTOR).innerHTML = toSearchView(await getSearch(query), query);
 };
 
+
+/**
+ * Renders the "Upload Gif" button view in GIFtube.
+ *
+ * @returns {void} - The function doesn't return a value.
+ * @see toUploadBtnView
+ */
 export const renderUploadBtn = () => {
     q(CONTAINER_SELECTOR).innerHTML = toUploadBtnView();
 };
 
+
+/**
+ * Renders the "Uploads" view in GIFtube, displaying uploaded GIFs.
+ *
+ * @returns {Promise<void>} - A promise that resolves after rendering the uploads view.
+ * @see loadUploads
+ * @see loadSingleGif
+ * @see toUploadsView
+ */
 export const renderUploads = async () => {
     const uploads = loadUploads();
     const uploadGifs = [];

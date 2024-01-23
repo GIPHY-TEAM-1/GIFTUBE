@@ -1,3 +1,8 @@
+/**
+ * Generates the HTML string for the "Upload Gif" button view in GIFtube.
+ *
+ * @returns {string} - The HTML string representing the content for the "Upload Gif" button view.
+ */
 export const toUploadBtnView = () => {
     return `
     <div class="upload-btn-view gif-view">

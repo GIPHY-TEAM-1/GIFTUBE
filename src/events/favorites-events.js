@@ -31,12 +31,6 @@ export const renderFavoriteStatus = (gifId) => {
     </span>`;
 };
 
-// export const renderFavoriteStatus = (gifId) => {
-//     const favorites = getFavorites();
-//     if (favorites.includes(gifId)) return `<img class="heart-icon favorite active" data-gif-id=${gifId} src="../../images/fav-icons/FULL_HEART.png">`;
-//     return `<img class="heart-icon favorite" data-gif-id=${gifId} src="../../images/fav-icons/EMPTY_HEART.png">`;
-// };
-
 /**
  * Toggles the favorite status of a GIF based on its ID.
  *
