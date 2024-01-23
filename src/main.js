@@ -6,7 +6,7 @@ import { getSingleGif } from './data/single-gif.js';
 import { toggleFavoriteStatus } from './events/favorites-events.js';
 import { loadSingleGif } from './requests/request-service.js';
 import { UploadPostRequest } from './events/upload-events.js';
-import { fileIsNotAttached, toUploadBtnView } from './views/upload-btn-view.js';
+import { toUploadBtnView } from './views/upload-btn-view.js';
 
 /**
  * Event listener setup for GIFtube webpage.

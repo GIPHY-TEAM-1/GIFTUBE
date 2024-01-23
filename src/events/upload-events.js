@@ -1,6 +1,4 @@
-import { CONTAINER_SELECTOR } from "../common/constants.js";
 import { uploadGif } from "../data/uploads.js";
-import { isSuccessfulUpload, waitToUploadFile } from "../views/upload-btn-view.js";
 import { q } from "./helpers.js";
 
 /**

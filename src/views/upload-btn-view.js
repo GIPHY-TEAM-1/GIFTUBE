@@ -20,35 +20,3 @@ export const toUploadBtnView = () => {
     </div>
     `;
 };
-
-/**
- * Generates HTML markup indicating a successful file upload and renders the upload button view.
- *
- * @function
- * @returns {string} - HTML markup with a success message for file upload.
- * @see toUploadBtnView
- */
-export const isSuccessfulUpload = () => {
-    return `
-    ${toUploadBtnView('File uploaded successfully!')}
-`
-}
-
-/**
- * Generates HTML markup indicating that no file is attached and renders the upload button view.
- *
- * @function
- * @returns {string} - HTML markup with a message indicating no file is attached.
- * @see toUploadBtnView
- */
-export const fileIsNotAttached = () => {
-    return `
-    ${toUploadBtnView('Please upload a file!')}
-`
-}
-
-export const waitToUploadFile = () => {
-    return `
-    ${toUploadBtnView('Uploading file...')}
-    `
-}
