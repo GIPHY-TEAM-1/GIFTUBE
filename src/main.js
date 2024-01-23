@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const file = fileInput.files[0];
 
             if (!file) {
-                fileIsNotAttached();
+                q(CONTAINER_SELECTOR).innerHTML = fileIsNotAttached();
             } else {
                 UploadPostRequest(file, uploadApi);
             }
