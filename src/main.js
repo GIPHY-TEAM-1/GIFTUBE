@@ -59,6 +59,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    /** Handle runaway button */
+    document.addEventListener('mouseover', (event) => {
+        if (event.target.parentNode.classList.contains('upload-btn')) {
+            console.log('hovering');
+            event.target.parentNode.classList.toggle('move-right');
+        }
+    });
+
+    /** Handle copy link popup button */
+    document.addEventListener('click', (event) => {
+        if (event.target.classList.contains('link-btn')) {
+            q('.pop-up').classList.toggle('hidden');
+            setTimeout(() => {
+                q('.pop-up').classList.toggle('hidden');
+            }, 2500);
+        }
+    });
+
     /** Loading of the TRENDING page when the DOM is fully loaded */
     loadPage(TRENDING);
 

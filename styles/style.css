@@ -246,7 +246,7 @@ footer {
 /* POP-UP */
 
 .pop-up {
-    width: 100vw;
+    width: 100%;
     text-align: center;
     margin: 0;
     padding: .5em 0;
@@ -300,4 +300,9 @@ input[type="file"] {
     padding: .5em 1em;
     cursor: pointer;
     text-transform: uppercase;
+}
+
+.move-right {
+    position: relative;
+    left: 150px;
 }
