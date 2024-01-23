@@ -47,7 +47,7 @@ export const toggleFavoriteStatus = (gifId) => {
     } else {
         addFavorite(gifId);
         favoriteStatus.classList.toggle('active');
-    };
+    }
 
     favoriteStatus.innerHTML = renderFavoriteStatus(gifId);
 };

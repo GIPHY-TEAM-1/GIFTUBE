@@ -1,4 +1,4 @@
-import { toSimpleView } from "./gif-view.js";
+import { toSimpleView } from './gif-view.js';
 
 /**
  * Generates the HTML string for the trending view in GIFtube.

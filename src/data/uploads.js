@@ -4,8 +4,7 @@
  *
  * @type {Array}
  */
-export let uploads = JSON.parse(localStorage.getItem('uploads')) || [];
-
+export const uploads = JSON.parse(localStorage.getItem('uploads')) || [];
 
 /**
  * Adds information about an uploaded GIF to the uploads array and stores it in localStorage.
@@ -13,10 +12,9 @@ export let uploads = JSON.parse(localStorage.getItem('uploads')) || [];
  * @param {Object} response - Information about the uploaded GIF.
  */
 export const uploadGif = (response) => {
-  uploads.push(response);
-  localStorage.setItem('uploads', JSON.stringify(uploads));
+    uploads.push(response);
+    localStorage.setItem('uploads', JSON.stringify(uploads));
 };
-
 
 /**
  * Retrieves a copy of the uploads array in reverse order.
@@ -25,4 +23,3 @@ export const uploadGif = (response) => {
  * @see uploads
  */
 export const getUploads = () => [...uploads].reverse();
-

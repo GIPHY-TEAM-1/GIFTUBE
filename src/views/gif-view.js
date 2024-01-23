@@ -1,5 +1,5 @@
-import { link } from "../common/constants.js"
-import { renderFavoriteStatus } from "../events/favorites-events.js"
+import { link } from '../common/constants.js';
+import { renderFavoriteStatus } from '../events/favorites-events.js';
 
 /**
  * Generates the HTML string for a simple view of a GIF in GIFtube.

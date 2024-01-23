@@ -1,6 +1,12 @@
 {
     "type": "module",
+    "scripts": {
+        "lint": "eslint ."
+    },
     "dependencies": {
+        "@types/eslint": "^8.56.2",
+        "eslint": "^8.56.0",
+        "eslint-config-airbnb-base": "^15.0.0",
         "masonry-layout": "^4.2.2"
     }
 }

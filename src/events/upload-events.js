@@ -1,5 +1,5 @@
-import { uploadGif } from "../data/uploads.js";
-import { q } from "./helpers.js";
+import { uploadGif } from '../data/uploads.js';
+import { q } from './helpers.js';
 
 /**
  * Sends a POST request to the specified API endpoint with the provided file data.
@@ -28,13 +28,12 @@ export const UploadPostRequest = async (file, api) => {
                 body: formData
             });
             const response = await request.json();
-            q('#user-msg').innerHTML = 'File uploaded successfully!'
+            q('#user-msg').innerHTML = 'File uploaded successfully!';
             uploadGif(response);
         }, 2000);
 
         q('#user-msg').innerHTML = 'Uploading file...';
-
     } catch (e) {
         console.log(e.message);
     }
-}
+};

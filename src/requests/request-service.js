@@ -49,7 +49,6 @@ export const loadRandomGif = async () => {
     return randomGif;
 };
 
-
 /**
  * Retrieves information about uploaded items from the application state.
  *

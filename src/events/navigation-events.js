@@ -1,3 +1,4 @@
+/* eslint-disable no-await-in-loop */
 import { q, setActiveNav } from './helpers.js';
 import { ABOUT, CATEGORIES, CONTAINER_SELECTOR, FAVORITES, TRENDING, UPLOAD, UPLOADBTN } from '../common/constants.js';
 import { loadFavorites, loadRandomGif, loadSingleGif, loadTrending, loadUploads } from '../requests/request-service.js';
@@ -53,9 +54,9 @@ const renderTrending = async () => {
     q(CONTAINER_SELECTOR).innerHTML = toTrendingView(await loadTrending());
 };
 
-const renderCategories = async() => {
+const renderCategories = async () => {
     q(CONTAINER_SELECTOR).innerHTML = await toCategoriesView();
-}
+};
 /**
  * Renders the favorite GIFs in the specified container using the favorites view.
  *
@@ -100,7 +101,6 @@ export const renderSearch = async (query) => {
     q(CONTAINER_SELECTOR).innerHTML = toSearchView(await getSearch(query), query);
 };
 
-
 /**
  * Renders the "Upload Gif" button view in GIFtube.
  *
@@ -110,7 +110,6 @@ export const renderSearch = async (query) => {
 export const renderUploadBtn = () => {
     q(CONTAINER_SELECTOR).innerHTML = toUploadBtnView();
 };
-
 
 /**
  * Renders the "Uploads" view in GIFtube, displaying uploaded GIFs.

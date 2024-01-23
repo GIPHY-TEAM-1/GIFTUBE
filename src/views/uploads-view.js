@@ -1,6 +1,5 @@
 import { toSimpleView } from './gif-view.js';
 
-
 /**
  * Generates the HTML string for the "Uploads" view in GIFtube.
  *

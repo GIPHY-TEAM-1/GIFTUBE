@@ -6,7 +6,7 @@ import { getGifById } from '../common/constants.js';
  * Retrieves information about a single GIF by its ID asynchronously.
  *
  * @param {string} id - The ID of the GIF to retrieve information for.
- * @returns {Promise<Object>} A promise that resolves to an object containing information about the GIF.
+ * @return {Promise<Object>} A promise that resolves to an object containing information about the GIF.
  */
 export const getSingleGif = async (id) => {
     const response = await fetch(getGifById(id));

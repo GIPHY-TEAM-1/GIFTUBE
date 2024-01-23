@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /** Handle runaway button */
-    const uploadBtn = q('.upload-btn')
+    const uploadBtn = q('.upload-btn');
     uploadBtn.addEventListener('mouseover', (event) => {
         if (event.target.parentNode.classList.contains('upload-btn')) {
             console.log('hovering');
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const fileInput = q('#file-input');
 
         /**
-        * Event listener for the click event on the inner upload button. 
+        * Event listener for the click event on the inner upload button.
         * Prevents the default form submission behavior, checks if a file is selected,
         * and either displays a message indicating that no file is attached or initiates
         * the upload request using the UploadPostRequest function.
@@ -145,8 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!file) {
                 /** Display a message if no file is attached */
-                q('#user-msg').innerHTML = 'Please upload a file!'
-
+                q('#user-msg').innerHTML = 'Please upload a file!';
             } else {
                 /** If a file is selected, initiate the upload request */
                 q(CONTAINER_SELECTOR).innerHTML = toUploadBtnView();
