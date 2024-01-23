@@ -4,17 +4,16 @@ import { FAVORITES, TRENDING, CONTAINER_SELECTOR, uploadApi, UPLOADBTN } from '.
 import { toSingleGifView } from './views/gif-view.js';
 import { getSingleGif } from './data/single-gif.js';
 import { toggleFavoriteStatus } from './events/favorites-events.js';
-// import { uploadGif } from './data/uploads.js';
 import { loadSingleGif } from './requests/request-service.js';
 import { UploadPostRequest } from './events/upload-events.js';
 import { fileIsNotAttached } from './views/upload-btn-view.js';
 
-// !!!! REMINDER TO MYSELF: TO ADD IN @listens click ALL NEW IMPLEMENTATIONS!!!!
 /**
  * Event listener setup for GIFtube webpage.
  *
  * @listens DOMContentLoaded - Listens for the DOMContentLoaded event to initialize the script.
- * @listens click - Listens for click events on navigation links, simple views, and favorite icons to trigger relevant actions.
+ * @listens click - Listens for click events on navigation links, simple views, favorite icons, and upload buttons to trigger relevant actions.
+ * @listens keydown - Listens for keydown events on the search input field to initiate a search when the Enter key is pressed.
  */
 document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('click', async (event) => {
@@ -38,10 +37,12 @@ document.addEventListener('DOMContentLoaded', () => {
             await renderFavorites();
         }
 
+        /** Handle clicking on the upload button */
         if (event.target.classList.contains('uploads')) {
             renderUploads();
         }
 
+        /** Handle clicking on the search button */
         if (event.target.parentNode.classList.contains('search-btn')) {
             const input = q('#search');
             if (input.value !== '') {
@@ -50,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        /** Handle clicking on the link button */
         if (event.target.classList.contains('link-btn')) {
             const result = await loadSingleGif(event.target.parentNode.parentNode.getAttribute('data-gif-id'));
             navigator.clipboard.writeText(result.image);
