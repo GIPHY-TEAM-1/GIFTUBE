@@ -148,7 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 q('#user-msg').innerHTML = 'Please upload a file!';
             } else {
                 /** If a file is selected, initiate the upload request */
-                q(CONTAINER_SELECTOR).innerHTML = toUploadBtnView();
                 UploadPostRequest(file, uploadApi);
             }
         });
