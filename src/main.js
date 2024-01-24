@@ -63,7 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const uploadBtn = q('.upload-btn');
     uploadBtn.addEventListener('mouseover', (event) => {
         if (event.target.parentNode.classList.contains('upload-btn')) {
-            console.log('hovering');
             event.target.parentNode.classList.toggle('move-right');
         }
     });
@@ -145,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!file) {
                 /** Display a message if no file is attached */
-                q('#user-msg').innerHTML = 'Please upload a file!';
+                q('#user-msg').innerHTML = 'Please choose a file!';
             } else {
                 /** If a file is selected, initiate the upload request */
                 UploadPostRequest(file, uploadApi);

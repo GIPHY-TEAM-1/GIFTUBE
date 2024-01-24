@@ -78,7 +78,7 @@ export const renderFavorites = async () => {
         const promise = await loadRandomGif();
         favoriteGifs.push(promise);
         q(CONTAINER_SELECTOR).innerHTML = toFavoritesView(favoriteGifs, true);
-        q('#h3-favorite-view').innerHTML = 'No GIFs yes 🥺';
+        q('#h3-favorite-view').innerHTML = 'No GIFs yet 🥺';
     }
 };
 

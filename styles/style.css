@@ -300,6 +300,8 @@ input[type="file"] {
     padding: .5em 1em;
     cursor: pointer;
     text-transform: uppercase;
+    max-width: fit-content;
+    margin: .3em;
 }
 
 .upload-btn-container > form > label:hover, .upload-btn-container > form > button:hover {
@@ -317,4 +319,12 @@ input[type="file"] {
 .move-right {
     position: relative;
     left: 150px;
+}
+
+.upload-btn-container > form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
