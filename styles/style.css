@@ -302,6 +302,18 @@ input[type="file"] {
     text-transform: uppercase;
 }
 
+.upload-btn-container > form > label:hover, .upload-btn-container > form > button:hover {
+    background-color: #00a1aa;
+}
+
+.upload-btn-container > form > label:active, .upload-btn-container > form > button:active {
+    background-color: #00838a;
+}
+
+.upload-btn-container > form > button {
+    border-top: #00929A 2px solid;
+}
+
 .move-right {
     position: relative;
     left: 150px;
