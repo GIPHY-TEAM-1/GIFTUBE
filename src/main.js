@@ -60,12 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /** Handle runaway button */
-    const uploadBtn = q('.upload-btn');
-    uploadBtn.addEventListener('mouseover', (event) => {
-        if (event.target.parentNode.classList.contains('upload-btn')) {
-            event.target.parentNode.classList.toggle('move-right');
-        }
-    });
+    // const uploadBtn = q('.upload-btn');
+    // uploadBtn.addEventListener('mouseover', (event) => {
+    //     if (event.target.parentNode.classList.contains('upload-btn')) {
+    //         event.target.parentNode.classList.toggle('move-right');
+    //     }
+    // });
 
     /** Handle copy link popup button */
     document.addEventListener('click', (event) => {
