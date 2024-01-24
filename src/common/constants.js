@@ -26,6 +26,8 @@ export const searchURL = (query = '', limit = 25, offset = 0) => `https://api.gi
 
 export const getGifById = (gifId) => `https://api.giphy.com/v1/gifs/${gifId}?api_key=${API_KEY}&rating=g`;
 
+export const getGifsById = (gifIds) => `https://api.giphy.com/v1/gifs?api_key=${API_KEY}&ids=${gifIds}&rating=g`;
+
 export const uploadApi = `https://upload.giphy.com/v1/gifs?api_key=${API_KEY}`;
 
 export const randomGif = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=&rating=g`;

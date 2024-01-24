@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.target.classList.contains('link-btn')) {
             const result = await loadSingleGif(event.target.parentNode.parentNode.getAttribute('data-gif-id'));
             navigator.clipboard.writeText(result.image);
-            q(CONTAINER_SELECTOR).innerHTML += '<div class="copy-message">Link copied to clipboard!</div>';
+            // q(CONTAINER_SELECTOR).innerHTML += '<div class="copy-message">Link copied to clipboard!</div>';
         }
     });
 

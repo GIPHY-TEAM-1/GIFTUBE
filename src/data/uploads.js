@@ -7,12 +7,13 @@
 export const uploads = JSON.parse(localStorage.getItem('uploads')) || [];
 
 /**
- * Adds information about an uploaded GIF to the uploads array and stores it in localStorage.
+ * Adds the specified GIF ID to the list of uploaded GIFs and updates the local storage.
  *
- * @param {Object} response - Information about the uploaded GIF.
+ * @param {string} id - The ID of the GIF to be added to the uploaded list.
+ * @returns {void}
  */
-export const uploadGif = (response) => {
-    uploads.push(response);
+export const uploadGif = (id) => {
+    uploads.push(id);
     localStorage.setItem('uploads', JSON.stringify(uploads));
 };
 

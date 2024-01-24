@@ -3,6 +3,7 @@ import { getFavorites } from '../data/favorites.js';
 import { getSingleGif } from '../data/single-gif.js';
 import { getRandomGif } from '../data/random-gif.js';
 import { getUploads } from '../data/uploads.js';
+import { getGifsByIds } from '../data/gifs-by-id.js';
 
 /**
  * Loads trending GIFs asynchronously using the getTrending function.
@@ -50,13 +51,17 @@ export const loadRandomGif = async () => {
 };
 
 /**
- * Retrieves information about uploaded items from the application state.
+ * Loads uploaded GIFs by retrieving their IDs from local storage and fetching
+ * details using the GIPHY API.
  *
- * @returns {Array} - An array containing information about uploaded items.
- * @see getUploads
+ * @async
+ * @function
+ * @returns {Promise<Object[]>} An array of objects containing information about the uploaded GIFs.
  */
-export const loadUploads = () => {
+export const loadUploads = async () => {
     const uploads = getUploads();
+    const idsCommaSeparated = uploads.join(',');
+    const gifs = await getGifsByIds(idsCommaSeparated);
 
-    return uploads;
+    return gifs;
 };

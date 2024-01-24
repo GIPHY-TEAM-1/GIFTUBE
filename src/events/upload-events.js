@@ -2,21 +2,20 @@ import { uploadGif } from '../data/uploads.js';
 import { q } from './helpers.js';
 
 /**
- * Sends a POST request to the specified API endpoint with the provided file data.
+ * Initiates a POST request to upload a GIF file using the specified API.
  *
- * @function
  * @async
- * @param {File} file - The file data to be uploaded.
- * @param {string} api - The API endpoint for file upload.
- * @returns {Promise<void>} - A promise that resolves after the file is successfully uploaded.
- * @throws {Error} - Throws an error if there is an issue with the fetch request or the file upload.
+ * @function
+ * @param {File} file - The GIF file to be uploaded.
+ * @param {string} api - The API endpoint for uploading the GIF file.
+ * @returns {Promise<void>}
  *
  * @example
- * try {
- *    await UploadPostRequest(fileData, 'https://example.com/upload');
- * } catch (error) {
- *    console.error('Error during file upload:', error.message);
- * }
+ * // Example usage:
+ * const fileInput = document.getElementById('file-input');
+ * const file = fileInput.files[0];
+ * const uploadApi = 'https://example.com/upload';
+ * UploadPostRequest(file, uploadApi);
  */
 export const UploadPostRequest = async (file, api) => {
     const formData = new FormData();
@@ -29,7 +28,7 @@ export const UploadPostRequest = async (file, api) => {
             });
             const response = await request.json();
             q('#user-msg').innerHTML = 'File uploaded successfully!';
-            uploadGif(response);
+            uploadGif(response.data.id);
         }, 2000);
 
         q('#user-msg').innerHTML = 'Uploading file...';

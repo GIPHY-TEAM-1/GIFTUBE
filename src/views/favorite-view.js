@@ -10,7 +10,7 @@ import { toSimpleView } from './gif-view.js';
 export const toFavoritesView = (gifs, random = false) =>
     `
 <div class="favorites-view gif-view" data-page="favorites">
-  <h3>❤️ Your favorite GIFs</h3>
+  <h3 id="h3-favorite-view"></h3>
   ${random ? '<p>Behold the GIF that\'s stealing the spotlight right now! 🔥 Feeling the vibe? Secure its spot in your favorites!</p>' : ''}
   <div class="favorites-container gif-container">
     ${gifs.map((g) => toSimpleView(g)).join('\n')}

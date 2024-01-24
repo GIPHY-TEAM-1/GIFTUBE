@@ -10,6 +10,7 @@ import { toSearchView } from '../views/search-view.js';
 import { getSearch } from '../data/search-data.js';
 import { toUploadsView } from '../views/uploads-view.js';
 import { toCategoriesView } from '../views/categories.js';
+import { toSimpleView } from '../views/gif-view.js';
 
 /**
  * Loads the specified page, sets the active navigation link, and renders the corresponding content.
@@ -72,10 +73,12 @@ export const renderFavorites = async () => {
             favoriteGifs.push(promise);
         }
         q(CONTAINER_SELECTOR).innerHTML = toFavoritesView(favoriteGifs);
+        q('#h3-favorite-view').innerHTML = '❤️ Your favorite GIFs';
     } else {
         const promise = await loadRandomGif();
         favoriteGifs.push(promise);
         q(CONTAINER_SELECTOR).innerHTML = toFavoritesView(favoriteGifs, true);
+        q('#h3-favorite-view').innerHTML = 'No GIFs yes 🥺';
     }
 };
 
@@ -112,20 +115,27 @@ export const renderUploadBtn = () => {
 };
 
 /**
- * Renders the "Uploads" view in GIFtube, displaying uploaded GIFs.
+ * Renders the "Uploads" view in GIFtube, displaying information about uploaded GIFs.
+ * If there are uploaded GIFs, it retrieves the details for each GIF and updates the view.
+ * If there are no uploads, it displays a message indicating the absence of GIFs.
  *
- * @returns {Promise<void>} - A promise that resolves after rendering the uploads view.
- * @see loadUploads
- * @see loadSingleGif
- * @see toUploadsView
+ * @async
+ * @function
+ * @returns {Promise<void>}
  */
 export const renderUploads = async () => {
-    const uploads = loadUploads();
+    const uploads = await loadUploads();
     const uploadGifs = [];
-
-    for (const id of uploads) {
-        const promise = await loadSingleGif(id.data.id);
-        uploadGifs.push(promise);
+    if (uploads.length !== 0) {
+        for (const id of uploads) {
+            const promise = await loadSingleGif(id.id);
+            uploadGifs.push(promise);
+        }
+        q(CONTAINER_SELECTOR).innerHTML = toUploadsView();
+        q('.h3-uploads-view').innerHTML = `${uploadGifs[0].username}`;
+        q('.uploads-container').innerHTML = `${uploadGifs.map((g) => toSimpleView(g)).join('\n')}`;
+    } else {
+        q(CONTAINER_SELECTOR).innerHTML = toUploadsView();
+        q('.h3-uploads-view').innerHTML = 'No GIFs yet 🥺';
     }
-    q(CONTAINER_SELECTOR).innerHTML = toUploadsView(uploadGifs);
 };
